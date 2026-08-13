@@ -1,0 +1,10 @@
+import './js/render/header.js';
+import './js/render/hero.js';
+import './js/render/dessert-list.js';
+import './js/render/about-us.js';
+import './js/render/feedback.js';
+import './js/render/faq.js';
+import './js/render/footer.js';
+import './js/render/burger.js';
+import './js/render/dessert-modal.js';
+import './js/render/order.js';

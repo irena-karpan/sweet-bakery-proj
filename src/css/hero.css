@@ -7,7 +7,6 @@
   min-height: 738px;
   display: flex;
   align-items: center;
-
   background-color: rgba(0, 0, 0, 0.5);
   background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -38,6 +37,8 @@
   max-width: 323px;
 }
 .hero-btn {
+  display: block;
+  text-align: center;
   border: 1px solid var(--color-pink);
   border-radius: 100px;
   padding: 10px 24px;
@@ -66,6 +67,24 @@
 
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
+  .hero {
+    min-height: 900px;
+    background-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      image-set(
+        url(../img/hero/hero-tablet.jpg) 1x,
+        url(../img/hero/hero-tablet@2x.jpg) 2x
+      );
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-btn {
+    max-width: 219px;
+    margin-inline: auto;
+  }
 }
 
 /* Styles for Desktop devices */

@@ -5,6 +5,9 @@
   margin: 0 auto;
   padding: 0 20px;
 }
+.section {
+  padding: 64px;
+}
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
   .container {
@@ -17,5 +20,8 @@
   .container {
     max-width: 1440px;
     padding-inline: 64px;
+  }
+  .section {
+    padding: 80px;
   }
 }

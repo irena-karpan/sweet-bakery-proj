@@ -1,5 +1,6 @@
 import './js/render/header.js';
 import './js/render/hero.js';
+import './js/render/bestsellers.js'
 import './js/render/dessert-list.js';
 import './js/render/about-us.js';
 import './js/render/feedback.js';

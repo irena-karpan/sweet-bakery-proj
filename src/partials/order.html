@@ -1,0 +1,54 @@
+<div class="modal-order">
+  <div class="modal-content">
+    <button type="button" class="order-close" aria-label="Закрити">
+      <svg width="24" height="24">
+        <use href="../img/sprite.svg#close-icon"></use>
+      </svg>
+    </button>
+
+    <h2>Оформлення замовлення</h2>
+
+    <form class="order-form">
+      <div class="form-name">
+        <label for="name"
+          >Ім’я*
+          <input
+            type="text"
+            id="name"
+            name="username"
+            placeholder="Вікторія"
+            required
+          />
+          <span class="error-message">Error Text</span>
+        </label>
+      </div>
+      <div class="form-phone">
+        <label for="phone"
+          >Телефон*
+          <input
+            type="tel"
+            id="phone"
+            name="phone-number"
+            placeholder="38 0__ _______"
+            required
+          />
+          <span class="error-message">Error Text</span>
+        </label>
+      </div>
+      <div class="form-comm">
+        <label for="comment"
+          >Коментар*
+          <textarea
+            class="form-comment"
+            id="comment"
+            name="comment"
+            placeholder="Ваш коментар"
+            required
+          ></textarea>
+          <span class="error-message">Error Text</span>
+        </label>
+      </div>
+      <button type="submit" class="submit-btn">Надіслати заявку</button>
+    </form>
+  </div>
+</div>

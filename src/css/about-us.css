@@ -1,0 +1,50 @@
+.about-us-title {
+  margin-bottom: 16px;
+
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.about-us-text {
+  margin-bottom: 40px;
+
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.about-us-swiper {
+  width: 100%;
+}
+
+.about-us-gallery.swiper-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-us-slide.swiper-slide {
+  width: 100%;
+  height: auto;
+}
+
+.about-us-image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.about-us-controls {
+  display: none;
+}

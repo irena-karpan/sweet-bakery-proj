@@ -1,0 +1,124 @@
+/* ====== BURGER MENU ====== */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 375px;
+    height: 100dvh;
+    background-color: var(--color-white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: right var(--transition);
+    z-index: 1001;
+}
+
+.mobile-menu.is-open {
+    right: 0;
+}
+
+.mobile-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.mobile-logo svg {
+    display: block;
+    width: 158px;
+    height: 72px;
+}
+
+.mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 36px;
+}
+
+.mobile-link {
+    display: block;
+    padding: 0 12px;
+    margin: 12px 0;
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+/* ====== HOVER+FOCUS ====== */
+.mobile-link:hover,
+.mobile-link:focus {
+    text-decoration: underline;
+    text-decoration-color: var(--color-text-primary);
+}
+
+/* ====== ACTIVE ====== */
+.mobile-link:active {
+    color: var(--color-pink);
+    text-decoration: underline;
+    text-decoration-color: var(--color-pink);
+}
+/* ====== BUTTON ====== */
+.mobile-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-pink);
+    color: var(--color-text-primary);
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+.mobile-btn:hover,
+.mobile-btn:focus {
+    border-color: var(--color-border);
+    background-color: var(--color-pink);
+}
+
+.mobile-btn:active {
+    background-color: var(--color-pink-dark);
+    border-color: var(--color-border);
+}
+
+
+/* ====== BACKDROP ====== */
+.mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+    z-index: 1000;
+}
+
+.mobile-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ====== BODY NO SCROLL ====== */
+body.no-scroll {
+    overflow: hidden;
+}

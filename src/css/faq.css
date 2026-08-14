@@ -1,0 +1,107 @@
+.faq-title {
+  text-align: center;
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin-bottom: 40px;
+}
+
+.faq-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-wrapper .ac {
+  background-color: transparent;
+  border: none;
+  border-top: 2px solid var(--color-border);
+  margin: 0;
+}
+
+.faq-wrapper .ac:last-child {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.faq-wrapper .ac .ac-trigger::before,
+.faq-wrapper .ac .ac-trigger::after {
+  content: none;
+  display: none;
+}
+
+.faq-wrapper .ac .ac-trigger,
+.faq-wrapper .ac.is-active .ac-trigger,
+.faq-wrapper .ac .ac-trigger:hover,
+.faq-wrapper .ac .ac-trigger:focus,
+.faq-wrapper .ac .ac-trigger:active {
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  opacity: 1;
+  outline: none;
+  transition: none;
+}
+
+.faq-question-text {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding-right: 24px;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  fill: var(--color-text-primary);
+  width: 24px;
+  height: 24px;
+}
+
+.ac.is-active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-wrapper .ac .ac-panel {
+  font-family: var(--font-primary);
+}
+
+.faq-wrapper .ac .ac-panel .ac-text {
+  padding: 0 0 24px 0;
+}
+
+.faq-answer-inner p {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+@media only screen and (min-width: 768px) {
+  .faq-title {
+    margin-bottom: 64px;
+  }
+
+  .faq-wrapper .ac .ac-trigger,
+  .faq-wrapper .ac.is-active .ac-trigger,
+  .faq-wrapper .ac .ac-trigger:hover,
+  .faq-wrapper .ac .ac-trigger:focus,
+  .faq-wrapper .ac .ac-trigger:active {
+    padding: 22.5px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .faq-title {
+    margin-bottom: 80px; 
+  }
+}

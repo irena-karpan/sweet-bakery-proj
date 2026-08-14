@@ -7,58 +7,115 @@
       десерти, які поєднують у собі вишуканий смак, свіжі інгредієнти та
       естетичний вигляд.
     </p>
-    <div class="about-us-swiper swiper">
-      <div class="about-us-gallery swiper-wrapper">
-        <div class="about-us-slide swiper-slide">
-          <img
-            class="about-us-image"
-            src="./img/about-us/chef-hands.jpg"
-            srcset="
-              ./img/about-us/chef-hands.jpg    1x,
-              ./img/about-us/chef-hands@2x.jpg 2x
-            "
-            alt="Процес приготування десертів"
-          />
-        </div>
-        <div class="about-us-slide swiper-slide">
-          <img
-            class="about-us-image"
-            src="./img/about-us/team.jpg"
-            srcset="./img/about-us/team.jpg 1x, ./img/about-us/team@2x.jpg 2x"
-            alt="Команда Солодкої Майстерні"
-          />
-        </div>
-        <div class="about-us-slide swiper-slide">
-          <img
-            class="about-us-image"
-            src="./img/about-us/interior.jpg"
-            srcset="
-              ./img/about-us/interior.jpg    1x,
-              ./img/about-us/interior@2x.jpg 2x
-            "
-            alt="Інтер'єр Солодкої Майстерні"
-          />
-        </div>
-        <div class="about-us-slide swiper-slide">
-          <img
-            class="about-us-image"
-            src="./img/about-us/woman.jpg"
-            srcset="./img/about-us/woman.jpg 1x, ./img/about-us/woman@2x.jpg 2x"
-            alt="Відвідувачка Солодкої Майстерні з десертом"
-          />
+    <div class="about-us-slider">
+      <div class="about-us-swiper swiper">
+        <div class="about-us-gallery swiper-wrapper">
+          <div class="about-us-slide swiper-slide">
+            <img
+              class="about-us-image"
+              src="./img/about-us/chef-hands.jpg"
+              srcset="
+                ./img/about-us/chef-hands.jpg 1x,
+                ./img/about-us/chef-hands@2x.jpg 2x
+              "
+              alt="Процес приготування десертів"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="about-us-slide swiper-slide">
+            <img
+              class="about-us-image"
+              src="./img/about-us/team.jpg"
+              srcset="
+                ./img/about-us/team.jpg 1x,
+                ./img/about-us/team@2x.jpg 2x
+              "
+              alt="Команда Солодкої Майстерні"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="about-us-slide swiper-slide">
+            <img
+              class="about-us-image"
+              src="./img/about-us/interior.jpg"
+              srcset="
+                ./img/about-us/interior.jpg 1x,
+                ./img/about-us/interior@2x.jpg 2x
+              "
+              alt="Інтер'єр Солодкої Майстерні"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="about-us-slide swiper-slide">
+            <img
+              class="about-us-image"
+              src="./img/about-us/woman.jpg"
+              srcset="
+                ./img/about-us/woman.jpg 1x,
+                ./img/about-us/woman@2x.jpg 2x
+              "
+              alt="Відвідувачка Солодкої Майстерні з десертом"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
-      <div class="about-us-controls">
-        <button
-          class="about-us-button about-us-button-prev"
-          type="button"
-          aria-label="Попередній слайд"
-        >
-          <svg class="about-us-button-icon" width="24" height="24">
-            <use href="./img/sprite.svg#arrow_back-icon"></use>
-          </svg>
-        </button>
-        <div class="about-us-pagination"></div>
+
+      <button
+        class="about-us-button about-us-button-prev"
+        type="button"
+        aria-label="Попередній слайд"
+      >
+        <svg class="about-us-button-icon" width="24" height="24">
+          <use href="./img/sprite.svg#arrow_back-icon"></use>
+        </svg>
+      </button>
+
+      <button
+        class="about-us-button about-us-button-next"
+        type="button"
+        aria-label="Наступний слайд"
+      >
+        <svg class="about-us-button-icon" width="24" height="24">
+          <use href="./img/sprite.svg#arrow_forward-icon"></use>
+        </svg>
+      </button>
+
+      <div class="about-us-pagination-wrapper">
+        <div class="about-us-pagination">
+          <button
+            class="about-us-pagination-bullet is-active"
+            type="button"
+            data-slide="0"
+            aria-label="Перейти до слайду 1"
+          ></button>
+
+          <button
+            class="about-us-pagination-bullet"
+            type="button"
+            data-slide="1"
+            aria-label="Перейти до слайду 2"
+          ></button>
+
+          <button
+            class="about-us-pagination-bullet"
+            type="button"
+            data-slide="2"
+            aria-label="Перейти до слайду 3"
+          ></button>
+
+          <button
+            class="about-us-pagination-bullet"
+            type="button"
+            data-slide="3"
+            aria-label="Перейти до слайду 4"
+          ></button>
+        </div>
+      </div>
+    </div>
         <button
           class="about-us-button about-us-button-next"
           type="button"

@@ -1,24 +1,15 @@
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
+import 'swiper/css/pagination';
 
 let aboutUsSwiper = null;
-
-const paginationBullets = document.querySelectorAll(
-  '.about-us-pagination-bullet'
-);
-
-function updatePagination(activeIndex) {
-  paginationBullets.forEach((bullet, index) => {
-    bullet.classList.toggle('is-active', index === activeIndex);
-  });
-}
 
 function initAboutUsSwiper() {
   if (window.innerWidth >= 768 && !aboutUsSwiper) {
     aboutUsSwiper = new Swiper('.about-us-swiper', {
-      modules: [Navigation],
+      modules: [Navigation, Pagination],
 
       slidesPerView: 2,
       spaceBetween: 24,
@@ -28,36 +19,17 @@ function initAboutUsSwiper() {
         nextEl: '.about-us-button-next',
       },
 
-      on: {
-        slideChange(swiper) {
-          updatePagination(swiper.activeIndex);
-        },
+      pagination: {
+        el: '.about-us-pagination',
+        clickable: true,
+        dynamicBullets: true,
       },
     });
-
-    paginationBullets.forEach(bullet => {
-      bullet.addEventListener('click', () => {
-        const slideIndex = Number(bullet.dataset.slide);
-
-        const maxIndex =
-          aboutUsSwiper.slides.length - aboutUsSwiper.params.slidesPerView;
-
-        const targetIndex = Math.min(slideIndex, maxIndex);
-
-        aboutUsSwiper.slideTo(targetIndex);
-
-        updatePagination(slideIndex);
-      });
-    });
-
-    updatePagination(0);
   }
 
   if (window.innerWidth < 768 && aboutUsSwiper) {
     aboutUsSwiper.destroy(true, true);
     aboutUsSwiper = null;
-
-    updatePagination(0);
   }
 }
 

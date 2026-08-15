@@ -1,4 +1,5 @@
 /* #region mobile */
+
 .about-us-title {
   margin-bottom: 24px;
 
@@ -45,25 +46,24 @@
   display: block;
   width: 100%;
   height: auto;
-
   border-radius: 16px;
-  /* object-fit: cover; */
 }
 
 .about-us-button,
 .about-us-pagination-wrapper {
   display: none;
 }
+
 /* #endregion */
+
 /* #region tablet */
+
 @media only screen and (min-width: 768px) {
   .about-us-slider {
     position: relative;
-    width: 100%;
   }
 
   .about-us-swiper {
-    width: 100%;
     overflow: hidden;
   }
 
@@ -76,15 +76,6 @@
     flex-shrink: 0;
     height: auto;
   }
-
-  .about-us-image {
-    width: 100%;
-    height: auto;
-
-    border-radius: 16px;
-  }
-
-  /* ---------- Slider buttons ---------- */
 
   .about-us-button {
     position: absolute;
@@ -107,7 +98,6 @@
     color: var(--color-text-primary);
 
     cursor: pointer;
-
     transform: translateY(-50%);
 
     transition:
@@ -126,7 +116,6 @@
   .about-us-button-icon {
     width: 24px;
     height: 24px;
-
     fill: currentColor;
   }
 
@@ -145,8 +134,6 @@
     pointer-events: none;
   }
 
-  /* ---------- Dynamic Pagination ---------- */
-
   .about-us-pagination-wrapper {
     display: flex;
     justify-content: center;
@@ -154,37 +141,33 @@
   }
 
   .about-us-pagination {
-    display: flex;
-    align-items: center;
-    gap: 9px;
+    width: auto !important;
   }
 
-  .about-us-pagination-bullet {
+  .about-us-pagination .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    padding: 0;
-
-    border: none;
-    border-radius: 50%;
 
     background-color: var(--color-neutral-light);
+    opacity: 1;
 
     cursor: pointer;
-
-    transition: background-color 250ms ease;
   }
 
-  .about-us-pagination-bullet:hover,
-  .about-us-pagination-bullet:focus-visible {
-    background-color: var(--color-neutral);
-  }
-
-  .about-us-pagination-bullet.is-active {
+  .about-us-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-text-primary);
   }
+
+  .about-us-pagination .swiper-pagination-bullet:hover,
+  .about-us-pagination .swiper-pagination-bullet:focus-visible {
+    background-color: var(--color-neutral);
+  }
 }
+
 /* #endregion */
+
 /* #region desktop */
+
 @media only screen and (min-width: 1440px) {
   .about-us-title {
     font-size: 48px;
@@ -196,4 +179,5 @@
     margin-right: auto;
   }
 }
+
 /* #endregion */

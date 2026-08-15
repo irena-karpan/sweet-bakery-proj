@@ -11,12 +11,19 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    transition: right var(--transition);
     z-index: 1001;
+    transform: translateX(40px);
+    opacity: 0;
+    transition:
+            right 450ms cubic-bezier(0.25, 0.1, 0.25, 1),
+            transform 450ms cubic-bezier(0.25, 0.1, 0.25, 1),
+            opacity 300ms ease;
 }
 
 .mobile-menu.is-open {
     right: 0;
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .mobile-close {
@@ -47,32 +54,43 @@
     margin-bottom: 36px;
 }
 
+/* ====== LINK ====== */
 .mobile-link {
+    position: relative;
     display: block;
+    width: fit-content;
     padding: 0 12px;
     margin: 12px 0;
     font-family: var(--font-primary);
     font-size: 18px;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.5;
     color: var(--color-text-primary);
     text-decoration: none;
-    transition: color var(--transition), text-decoration-color var(--transition);
+    outline: transparent;
+    transition: color 250ms ease;
 }
 
-/* ====== HOVER+FOCUS ====== */
-.mobile-link:hover,
-.mobile-link:focus {
-    text-decoration: underline;
-    text-decoration-color: var(--color-text-primary);
+.mobile-link::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 250ms ease;
 }
 
-/* ====== ACTIVE ====== */
+.mobile-link:hover::after,
+.mobile-link:focus::after {
+    width: calc(100% - 24px);
+}
+
 .mobile-link:active {
     color: var(--color-pink);
-    text-decoration: underline;
-    text-decoration-color: var(--color-pink);
 }
+
 /* ====== BUTTON ====== */
 .mobile-btn {
     display: block;
@@ -84,16 +102,21 @@
     border-radius: 100px;
     font-family: var(--font-primary);
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
-    border: 2px solid transparent;
+    border: 2px solid var(--color-pink);
+    outline: transparent;
     transition: background-color var(--transition), border-color var(--transition);
 }
 
 .mobile-btn:hover,
 .mobile-btn:focus {
     border-color: var(--color-border);
-    background-color: var(--color-pink);
+}
+
+.mobile-btn:focus {
+    outline: none;
+    border-color: transparent;
 }
 
 .mobile-btn:active {
@@ -109,8 +132,9 @@
     background: rgba(0, 0, 0, 0.4);
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--transition);
     z-index: 1000;
+    transition:
+            opacity 300ms ease;
 }
 
 .mobile-backdrop.is-open {

@@ -1,5 +1,5 @@
 /* ====== HEADER (mobile) ====== */
-.header {
+.header .container {
     height: 72px;
     display: flex;
     align-items: center;
@@ -8,29 +8,33 @@
 
 /* ====== LINKS ====== */
 .header-link {
-    font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
+    position: relative;
     color: var(--color-text-primary);
     text-decoration: none;
-    transition: color var(--transition), text-decoration-color var(--transition);
+    transition: color 250ms ease;
 }
 
-/* HOVER + FOCUS */
-.header-link:hover,
-.header-link:focus {
-    text-decoration: underline;
-    text-decoration-color: var(--color-text-primary);
+.header-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 250ms ease;
 }
 
-/* ACTIVE */
+.header-link:hover::after,
+.header-link:focus::after {
+    width: 100%;
+}
+
 .header-link:active {
     color: var(--color-pink);
-    text-decoration: underline;
-    text-decoration-color: var(--color-pink);
 }
-/* BUTTON */
+
+/* ====== BUTTON ====== */
 .header-btn {
     display: flex;
     align-items: center;
@@ -39,29 +43,34 @@
     padding: 0 24px;
     background-color: var(--color-pink);
     color: var(--color-text-primary);
-    border: none;
+    border: 2px solid transparent;
     border-radius: 100px;
     font-family: var(--font-primary);
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     transition: background-color var(--transition), border-color var(--transition);
 }
 
-/* HOVER, FOCUS, ACTIVE */
+/* ====== HOVER, FOCUS, ACTIVE ====== */
 .header-btn:hover,
 .header-btn:focus,
 .header-btn:active {
     border: 2px solid var(--color-border);
 }
 
+.header-btn:focus {
+    outline: none;
+    border-color: transparent;
+}
 
-/* ACTIVE */
+/* ====== ACTIVE ====== */
 .header-btn:active {
     background-color: var(--color-pink-dark);
+    border-color: var(--color-border);
 }
 
 /* ====== CONTAINER/BURGER/NAVIGATION ====== */
-.container {
+.header .container {
     width: 100%;
     margin: 0 auto;
     padding: 0 24px;
@@ -74,6 +83,7 @@
 .header-logo svg {
     width: 158px;
     height: 72px;
+    display: block;
 }
 
 /* ====== HEADER RIGHT ====== */
@@ -101,60 +111,53 @@
 .header-btn {
     display: none;
 }
-/* TABLET */
+
+/* ====== TABLET ====== */
 @media (min-width: 768px) {
-    .container {
+    .header .container {
         padding: 0 32px;
         max-width: 768px;
     }
-
     .burger-btn {
         display: none;
     }
-
     .header-nav {
         display: block;
     }
-
     .header-nav-list {
         display: flex;
         align-items: center;
         gap: 16px;
         flex-shrink: 0;
     }
-
     .header-btn {
         display: flex;
         flex-shrink: 0;
     }
-
     .header-right {
         gap: 16px;
         flex-shrink: 0;
     }
 }
-/* DESKTOP */
-@media (min-width: 1158px) {
-    .container {
+
+/* ====== DESKTOP ====== */
+@media (min-width: 1440px) {
+    .header .container {
         max-width: 1440px;
         padding: 0 64px;
     }
-
     .header-right {
         gap: 32px;
         flex-shrink: 0;
     }
-
     .header-nav-list {
         gap: 32px;
         flex-shrink: 0;
     }
-
     .header-btn {
         flex-shrink: 0;
     }
 }
-
 
 /* ====== CURSOR ====== */
 .header-link,

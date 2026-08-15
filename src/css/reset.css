@@ -1,7 +1,7 @@
 body {
-  background-color: #f5fdfd;
-  font-family: var(--main-font-family);
-  color: var(--main-text-color);
+  background-color: var(--color-background);
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
   margin: 0;
 }
 
@@ -19,7 +19,10 @@ h1,
 h2,
 h3,
 h4,
-h5,
+h5 {
+  margin: 0;
+  font-family: var(--font-secondary);
+}
 p {
   margin: 0;
 }

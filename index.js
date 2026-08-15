@@ -1,2 +1,34 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();
+import{a as n,i as p,S as u,P as f,N as m}from"./assets/vendor-BGUSJ3N5.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function c(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=c(e);fetch(e.href,r)}})();n.defaults.baseURL="https://deserts-store.b.goit.study/api/";async function g(){return(await n.get("desserts",{params:{page:1,limit:8,type:"popular"}})).data.desserts}const a=document.querySelector(".popular-swiper .swiper-wrapper"),w=document.querySelector(".loader-container"),y=document.querySelector(".slider-controls");function h(t,s){const c=t.map(({_id:i,image:e,name:r,price:o,category:l,description:d})=>`
+        <div class="swiper-slide">
+          <article class="product-card">
+            <div class="product-card-thumb">
+              <img 
+                src="${e}" 
+                alt="${r}" 
+                width="280" 
+              />
+            </div>
+
+            <div class="product-card-content">
+              <p class="product-card-category">${l.name}</p>
+              <h3 class="product-card-title">${r}</h3>
+              <p class="product-card-desc">${d}</p>
+            </div>
+
+            <div class="product-card-footer">
+              <p class="product-card-price">${o} грн</p>
+              
+              <button 
+                type="button" 
+                class="product-card-btn-arrow js-open-modal" 
+                data-id="${i}"
+                aria-label="Переглянути деталі ${r}"
+              > <svg class="arrow-card-icon" width="24" height="24">
+            <use href="./img/sprite.svg#arrow_outward-icon"></use>
+          </svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      `).join("");s.innerHTML=c}function v(){new u(".popular-swiper",{modules:[f,m],slidesPerView:1,spaceBetween:16,pagination:{el:".slider-controls .popular-pagination",clickable:!0,dynamicBullets:!0,dynamicMainBullets:1},navigation:{nextEl:".slider-controls .slider-button-next",prevEl:".slider-controls .slider-button-prev"},breakpoints:{768:{slidesPerView:2,spaceBetween:16},1440:{slidesPerView:3,spaceBetween:24}}})}async function b(){if(a)try{const t=await g();if(!t||t.length<3){a.innerHTML='<p class="error-message">На жаль, десерти відсутні</p>';return}h(t,a),v(),y.classList.remove("is-hidden")}catch(t){console.error("Помилка завантаження:",t),a.innerHTML='<p class="error-message">Не вдалося завантажити бестселлери</p>',p.error({title:"Помилка",message:"Не вдалося завантажити популярні десерти",position:"topRight"})}finally{w.classList.add("is-hidden")}}b();
 //# sourceMappingURL=index.js.map

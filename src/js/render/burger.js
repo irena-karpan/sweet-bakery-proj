@@ -27,3 +27,12 @@ links.forEach(link => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMenu();
 });
+
+document.addEventListener('keydown', e => {
+if (
+e.key === 'Escape' &&
+mobileMenu.classList.contains('is-open')
+) {
+closeMenu();
+}
+});

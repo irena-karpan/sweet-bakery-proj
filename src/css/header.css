@@ -1,6 +1,6 @@
 /* ====== HEADER (mobile) ====== */
 .header .container {
-    height: 72px;
+    max-height: 72px;
     display: flex;
     align-items: center;
     background-color: var(--color-white);

@@ -30,8 +30,9 @@
     background: none;
     border: none;
     cursor: pointer;
-    transform: scale(1.2);
     transform-origin: center;
+    stroke-width: 1px;
+    stroke: var(--color-text-primary);
 }
 
 .mobile-top {

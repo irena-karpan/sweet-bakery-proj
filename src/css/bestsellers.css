@@ -34,33 +34,7 @@
   color: var(--color-text-primary);
 }
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid var(--color-pink);
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* slider css */
-
-.slider-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .slider-controls {
   display: flex;
@@ -222,4 +196,8 @@
   .product-card-content {
     margin-bottom: 29px;
   }
+}
+
+.is-hidden {
+  display: none;
 }

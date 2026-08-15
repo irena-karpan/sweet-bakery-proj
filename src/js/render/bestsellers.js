@@ -12,6 +12,8 @@ import { fetchPopularProducts } from '../api/bestsellers-api';
 
 
 const swiperWrapper = document.querySelector('.popular-swiper .swiper-wrapper');
+const loaderContainer = document.querySelector('.loader-container');
+const sliderControls = document.querySelector('.slider-controls');
 
 export function renderPopularProducts(products, container) {
 
@@ -95,7 +97,8 @@ function initSwiper() {
 async function initPopularSection() {
   if (!swiperWrapper) return;
 
-  try {
+    try {
+        
       const products = await fetchPopularProducts();
 
       if (!products || products.length < 3) {
@@ -117,6 +120,9 @@ async function initPopularSection() {
       message: 'Не вдалося завантажити популярні десерти',
       position: 'topRight',
     });
+  } finally {
+    loaderContainer.classList.add('is-hidden');
+    sliderControls.classList.remove('is-hidden');
   }
 }
 

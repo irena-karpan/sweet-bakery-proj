@@ -39,7 +39,6 @@
 
 .about-us-slide {
   width: 100%;
-  height: auto;
 }
 
 .about-us-image {
@@ -50,7 +49,7 @@
 }
 
 .about-us-button,
-.about-us-pagination-wrapper {
+.about-us-pagination {
   display: none;
 }
 
@@ -63,18 +62,15 @@
     position: relative;
   }
 
-  .about-us-swiper {
+  .about-us-swiper.swiper {
+    position: relative;
     overflow: hidden;
+    padding-bottom: 56px;
   }
 
   .about-us-gallery.swiper-wrapper {
     flex-direction: row;
     gap: 0;
-  }
-
-  .about-us-slide.swiper-slide {
-    flex-shrink: 0;
-    height: auto;
   }
 
   .about-us-button {
@@ -106,11 +102,11 @@
   }
 
   .about-us-button-prev {
-    left: -28px;
+    left: -25px;
   }
 
   .about-us-button-next {
-    right: -28px;
+    right: -25px;
   }
 
   .about-us-button-icon {
@@ -134,28 +130,19 @@
     pointer-events: none;
   }
 
-  .about-us-pagination-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 48px;
-  }
-
   .about-us-pagination {
-    width: auto !important;
+    display: block;
+
+    --swiper-pagination-bottom: 0px;
+    --swiper-pagination-bullet-size: 8px;
+    --swiper-pagination-bullet-horizontal-gap: 4.5px;
+    --swiper-pagination-bullet-inactive-color: var(--color-neutral-light);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: var(--color-text-primary);
   }
 
   .about-us-pagination .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-
-    background-color: var(--color-neutral-light);
-    opacity: 1;
-
     cursor: pointer;
-  }
-
-  .about-us-pagination .swiper-pagination-bullet-active {
-    background-color: var(--color-text-primary);
   }
 
   .about-us-pagination .swiper-pagination-bullet:hover,

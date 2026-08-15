@@ -109,7 +109,9 @@ async function initPopularSection() {
       renderPopularProducts(products, swiperWrapper);
       
       initSwiper();
-
+      
+      sliderControls.classList.remove('is-hidden');
+        
   } catch (error) {
     console.error('Помилка завантаження:', error);
     
@@ -122,7 +124,7 @@ async function initPopularSection() {
     });
   } finally {
     loaderContainer.classList.add('is-hidden');
-    sliderControls.classList.remove('is-hidden');
+    
   }
 }
 

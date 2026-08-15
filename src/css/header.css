@@ -3,7 +3,7 @@
     max-height: 72px;
     display: flex;
     align-items: center;
-    background-color: var(--color-white);
+    background-color: var(--color-background);
 }
 
 /* ====== LINKS ====== */
@@ -48,7 +48,10 @@
     font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 500;
-    transition: background-color var(--transition), border-color var(--transition);
+    transition:
+        border-color 250ms ease,
+        background-color 250ms ease,
+        color 250ms ease;
 }
 
 /* ====== HOVER, FOCUS, ACTIVE ====== */
@@ -63,7 +66,6 @@
     border-color: transparent;
 }
 
-/* ====== ACTIVE ====== */
 .header-btn:active {
     background-color: var(--color-pink-dark);
     border-color: var(--color-border);
@@ -81,9 +83,15 @@
 
 /* ====== LOGO ====== */
 .header-logo svg {
+    display: block;
     width: 158px;
     height: 72px;
-    display: block;
+    fill: currentColor;
+    transition: color 250ms ease;
+}
+
+.header-logo:active svg {
+    color: var(--color-pink);
 }
 
 /* ====== HEADER RIGHT ====== */
@@ -116,7 +124,6 @@
 @media (min-width: 768px) {
     .header .container {
         padding: 0 32px;
-        max-width: 768px;
     }
     .burger-btn {
         display: none;
@@ -143,16 +150,13 @@
 /* ====== DESKTOP ====== */
 @media (min-width: 1440px) {
     .header .container {
-        max-width: 1440px;
         padding: 0 64px;
     }
     .header-right {
         gap: 32px;
-        flex-shrink: 0;
     }
     .header-nav-list {
         gap: 32px;
-        flex-shrink: 0;
     }
     .header-btn {
         flex-shrink: 0;

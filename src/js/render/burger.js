@@ -3,6 +3,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const backdrop = document.querySelector('.mobile-backdrop');
 const closeBtn = document.querySelector('.mobile-close');
 const links = document.querySelectorAll('.mobile-link');
+const mobileLogo = document.querySelector('.mobile-logo');
+mobileLogo.addEventListener('click', closeMenu);
 
 function openMenu() {
     mobileMenu.classList.add('is-open');
@@ -22,10 +24,6 @@ backdrop.addEventListener('click', closeMenu);
 
 links.forEach(link => {
     link.addEventListener('click', closeMenu);
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeMenu();
 });
 
 document.addEventListener('keydown', e => {

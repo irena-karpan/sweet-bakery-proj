@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 
 import { fetchPopularProducts } from '../api/bestsellers-api';
 
-
+import sprite from '../../img/sprite.svg';
 
 const swiperWrapper = document.querySelector('.popular-swiper .swiper-wrapper');
 const loaderContainer = document.querySelector('.loader-container');
@@ -46,7 +46,7 @@ export function renderPopularProducts(products, container) {
                 data-id="${_id}"
                 aria-label="Переглянути деталі ${name}"
               > <svg class="arrow-card-icon" width="24" height="24">
-            <use href="./img/sprite.svg#arrow_outward-icon"></use>
+            <use href="${sprite}#arrow_outward-icon"></use>
           </svg>
               </button>
             </div>

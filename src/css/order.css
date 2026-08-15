@@ -183,10 +183,6 @@ textarea + .error-message {
   display: none;
 }
 
-.loader {
-  background: var(--color-text-primary) !important;
-}
-
 .swal2-popup {
   border-radius: 16px;
   font-family: var(--font-primary);

@@ -213,6 +213,10 @@
   margin-inline: auto;
   padding: 10px 24px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 16px;
@@ -227,22 +231,25 @@
   transition:
     background-color 250ms ease,
     border-color 250ms ease,
-    border-width 250ms ease;
+    box-shadow 250ms ease;
 }
 
 .desserts__load-more:hover:not(:disabled) {
-  border-width: 2px;
-  border-color: var(--color-pink);
+  border-color: var(--color-text-primary);
+  box-shadow: inset 0 0 0 1px var(--color-text-primary);
 }
 
 .desserts__load-more:focus-visible {
+  border-color: var(--color-text-primary);
+  box-shadow: inset 0 0 0 1px var(--color-text-primary);
   outline: 2px solid var(--color-pink-dark);
   outline-offset: 2px;
 }
 
 .desserts__load-more:active:not(:disabled) {
   background-color: var(--color-pink-dark);
-  border-color: var(--color-pink-dark);
+  border-color: var(--color-text-primary);
+  box-shadow: inset 0 0 0 1px var(--color-text-primary);
 }
 
 .desserts__load-more:disabled {

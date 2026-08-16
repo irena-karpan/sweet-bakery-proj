@@ -213,10 +213,6 @@
   margin-inline: auto;
   padding: 10px 24px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 16px;

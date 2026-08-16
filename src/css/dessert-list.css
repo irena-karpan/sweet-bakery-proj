@@ -78,7 +78,6 @@
 .desserts__loader {
   box-sizing: border-box;
   align-self: center;
-  background: var(--color-text-primary);
 }
 
 /* Card */

@@ -119,8 +119,16 @@ function updateCategoryControls() {
     });
 }
 
-function setLoading(isLoading) {
+function setLoading(isLoading, { append = false } = {}) {
   state.isLoading = isLoading;
+
+  if (isLoading) {
+    refs.grid.insertAdjacentElement(
+      append ? 'afterend' : 'beforebegin',
+      refs.loader
+    );
+  }
+
   refs.loader.hidden = !isLoading;
   refs.grid.setAttribute('aria-busy', String(isLoading));
   refs.loadMoreButton.disabled = isLoading;
@@ -169,7 +177,7 @@ async function loadDesserts({ append = false, page = state.page } = {}) {
     return;
   }
 
-  setLoading(true);
+  setLoading(true, { append });
 
   try {
     const response = await fetchDesserts({

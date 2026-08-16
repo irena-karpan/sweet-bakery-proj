@@ -120,12 +120,9 @@
     color: var(--color-text-primary);
 }
 
-.mobile-btn:focus {
-    border-color: transparent;
-}
-
 .mobile-btn:active {
     background-color: var(--color-pink-dark);
+    border-color: var(--color-text-primary);
 }
 
 /* ====== BACKDROP ====== */

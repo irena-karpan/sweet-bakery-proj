@@ -160,50 +160,6 @@
   color: var(--color-text-primary);
 }
 
-.dessert-card__button {
-  box-sizing: border-box;
-  width: 44px;
-  height: 44px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 2px solid var(--color-text-primary);
-  border-radius: 50%;
-
-  background-color: transparent;
-
-  transition:
-    background-color 250ms ease,
-    border-color 250ms ease;
-}
-
-.dessert-card__button:hover:not(:disabled) {
-  border-color: var(--color-pink);
-}
-
-.dessert-card__button:focus-visible {
-  outline: 2px solid var(--color-pink-dark);
-  outline-offset: 2px;
-}
-
-.dessert-card__button:active:not(:disabled) {
-  background-color: var(--color-pink-dark);
-}
-
-.dessert-card__button:disabled {
-  cursor: default;
-  background-color: var(--color-pink);
-  border: 1px solid var(--color-pink);
-}
-
-.dessert-card__icon {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
-
 /* Load more */
 
 .desserts__load-more {

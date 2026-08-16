@@ -18,6 +18,7 @@
   pointer-events: none;
 }
 
+html.no-scroll,
 body.no-scroll {
   overflow: hidden;
 }

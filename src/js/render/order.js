@@ -8,22 +8,24 @@ const closeOrderButton = document.querySelector('.order-close');
 const orderForm = document.querySelector('.order-form');
 const loader = document.querySelector('.loader-backdrop');
 
-let selectedDesertId = null;
+let selectedDessertId = null;
 
-export function openOrderModal(desertId) {
-  selectedDesertId = desertId;
+export function openOrderModal(dessertId) {
+  selectedDessertId = dessertId;
 
   orderModal.classList.remove('is-hidden');
+  document.documentElement.classList.add('no-scroll');
   document.body.classList.add('no-scroll');
 }
 
 export function closeOrderModal() {
   orderModal.classList.add('is-hidden');
+  document.documentElement.classList.remove('no-scroll');
   document.body.classList.remove('no-scroll');
 }
 
-function getSelectedDesertId() {
-  return selectedDesertId;
+function getSelectedDessertId() {
+  return selectedDessertId;
 }
 
 function showLoader() {
@@ -76,7 +78,7 @@ orderForm.addEventListener('submit', async sendForm => {
     const formData = {
         "name": username.value.trim(),
         "phone": phone.value.trim(),
-        "desertId": getSelectedDesertId(),
+        "dessertId": getSelectedDessertId(),
         "comment": comment.value.trim()
     };
 
@@ -85,13 +87,13 @@ orderForm.addEventListener('submit', async sendForm => {
 
         const orderData = await createOrder(formData);
 
-        hideLoader();
-
         closeOrderModal();
         orderForm.reset();
 
         showOrderSuccess(orderData.orderNum);
     } catch {
         showOrderError('Не вдалося надіслати заявку. Спробуйте ще раз.');
+    } finally {
+      hideLoader();
     }
 });

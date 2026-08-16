@@ -21,7 +21,7 @@
     <script type="module" crossorigin src="/sweet-bakery-proj/index.js"></script>
     <link rel="modulepreload" crossorigin href="/sweet-bakery-proj/assets/vendor-CXeMV1Qs.js">
     <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/vendor-DIHIRIWG.css">
-    <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/index-DoPdtYMi.css">
+    <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/index-Cfn1HjTE.css">
   </head>
   <body>
     <header class="header">
@@ -107,7 +107,55 @@
   </div>
 </section>
 
-      
+      <section class="section desserts" id="desserts">
+  <div class="container desserts__container">
+    <div class="desserts__header">
+      <div class="desserts__heading">
+        <h2 class="desserts__title">Солодощі</h2>
+        <p class="desserts__description">
+          Спробуйте наші смачні десерти, які вас здивують!
+        </p>
+      </div>
+
+      <div class="desserts__select-wrapper">
+        <select
+          class="desserts__select"
+          aria-label="Оберіть категорію десертів"
+        >
+          <option value="">Всі десерти</option>
+        </select>
+      </div>
+    </div>
+
+    <div
+      class="desserts__categories"
+      role="group"
+      aria-label="Категорії десертів"
+    >
+      <button
+        class="desserts__category is-active"
+        type="button"
+        data-category-id=""
+      >
+        Всі десерти
+      </button>
+    </div>
+
+    <div
+      class="loader desserts__loader"
+      role="status"
+      aria-label="Завантаження десертів"
+      hidden
+    ></div>
+
+    <ul class="desserts__grid" aria-live="polite"></ul>
+
+    <button class="desserts__load-more" type="button" hidden>
+      Завантажити ще
+    </button>
+  </div>
+</section>
+
       <section class="about-us section" id="about-us">
   <div class="container">
     <h2 class="about-us-title" >Про нас</h2>

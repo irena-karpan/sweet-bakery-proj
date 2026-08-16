@@ -291,7 +291,7 @@
   }
 
   .desserts__category:hover:not(:disabled) {
-    border-color: var(--color-pink);
+    background-color: var(--color-pink);
   }
 
   .desserts__category:focus-visible {

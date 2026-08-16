@@ -29,6 +29,7 @@ function initSwiper() {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 20,
+    setWrapperSize: true,
 
     navigation: {
       nextEl: '.feedback-btn-next',

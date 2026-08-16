@@ -3,9 +3,10 @@
 @import 'swiper/css/pagination';
 
 /*  MOBILE  (від 320px до 767px) - Гумова та адаптивна верстка  */
+
 .feedback-section {
   padding: 64px 20px;
-  background-color: #f5fdfd;
+  background: #f5fdfd;
 }
 
 .feedback-swiper {
@@ -14,28 +15,35 @@
 }
 
 .feedback-controls {
-  position: relative;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  height: 48px;
+  justify-content: space-between;
   margin-top: 32px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.feedback-controls .feedback-pagination.swiper-pagination-bullets-dynamic {
-  position: absolute !important;
+.feedback-controls .feedback-pagination {
+  position: relative !important;
   left: 0 !important;
-  bottom: calc(50% - 4px) !important;
   transform: none !important;
-  margin: 0 !important;
-  width: 80px !important;
+  top: auto;
+
+  min-width: max-content;
+  max-width: 120px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
-/* Фарбуємо та налаштовуємо звичайні крапочки */
 .feedback-controls .feedback-pagination .swiper-pagination-bullet {
-  background-color: #bcbcbc;
+  background-color: #080c0c;
   opacity: 0.6;
+  flex-shrink: 0;
 }
 
 .feedback-controls .feedback-pagination .swiper-pagination-bullet-active {
@@ -43,40 +51,143 @@
   opacity: 1;
 }
 
-.feedback-navigation-buttons {
-  position: absolute;
-  right: 0;
+.feedback-controls .feedback-navigation-buttons {
   display: flex;
-  width: 112px;
-  height: 48px;
-  gap: 16px;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+  width: auto;
+  position: relative;
 }
 
 .feedback-btn {
-  flex-basis: 48px;
-  height: 48px;
-  background: none;
-  border: 1px solid #2c2c2c;
-  border-radius: 50%;
+  background-color: #f5fdfd;
   cursor: pointer;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #080c0c;
+  border-radius: 100px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.feedback-btn:hover,
+.feedback-btn:focus-visible {
+  background-color: #f19898;
+  border-color: #080c0c;
+  color: #080c0c;
+}
+
+.feedback-btn:active {
+  transform: scale(0.95);
+  background-color: #c07979;
+  border-color: #080c0c;
+  color: #080c0c;
+}
+
+.feedback-btn.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .feedback-card {
   box-sizing: border-box;
-  background: #ffffff;
-  border: 1px solid #dcdcdc;
+  background: #f5fdfd;
+  border: 1px solid #080c0c;
   border-radius: 20px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: flex-start;
   width: 100%;
+  height: 100%;
+}
+
+.star-rating {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 20px;
+  font-family: Times;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.star-rating::before {
+  content: '★★★★★';
+  background: linear-gradient(
+    90deg,
+    #2c2c2c var(--percent),
+    #e0e0e0 var(--percent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+section#feedback .feedback-container .feedback-title {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #080c0c;
+
+  width: 100%;
+  max-width: 335px;
+  flex-shrink: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 8px;
+}
+
+section#feedback .feedback-container .feedback-subtitle {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #080c0c;
+
+  width: 100%;
+  max-width: 335px;
+  flex-shrink: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.feedback-text {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  margin-top: 0;
+  color: #080c0c;
+  margin-bottom: 24px;
+}
+
+.feedback-user-name {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #080c0c;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+.feedback-swiper .swiper-slide {
+  box-sizing: border-box;
+  height: auto;
+  display: flex;
 }
 
 /* TABLET  (від 768px до 1439px) - Адаптація під планшет */
+
 @media screen and (min-width: 768px) {
   .feedback-section {
     padding: 64px 32px;
@@ -86,31 +197,66 @@
     max-width: 768px;
     padding: 0 32px;
     margin: 0 auto;
+    position: relative;
   }
 
-  .feedback-controls .feedback-pagination.swiper-pagination-bullets-dynamic {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-  .feedback-navigation-buttons {
-    position: absolute;
+  .feedback-controls {
+    position: relative;
+    margin-top: 32px;
+    height: 48px;
     width: 100%;
-    max-width: none;
-    left: 0;
-    right: 0;
-    justify-content: space-between;
+    z-index: 50;
+  }
+
+  .feedback-controls .feedback-pagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 50%;
-    transform: translateY(-50%);
+    max-width: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .feedback-controls .feedback-navigation-buttons {
+    position: absolute;
+    top: -165px;
+    transform: none;
+    margin-top: 0;
+
+    width: 100%;
+    left: 0;
+    right: auto;
+
+    justify-content: space-between;
     pointer-events: none;
+    display: flex;
+  }
+
+  .feedback-controls .feedback-navigation-buttons .feedback-btn-prev {
+    margin-left: -24px;
+    pointer-events: auto;
+  }
+
+  .feedback-controls .feedback-navigation-buttons .feedback-btn-next {
+    margin-right: -24px;
+    pointer-events: auto;
   }
 
   .feedback-btn {
-    pointer-events: auto;
+    background-color: #ffffff;
+  }
+
+  section#feedback .feedback-container .feedback-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 600px;
+    flex-shrink: 1;
   }
 }
 
-/* DESKTOP (від 1440px+) - Адаптація під десктоп */
+/*  DESKTOP (від 1440px+) - Адаптація під десктоп */
 
 @media screen and (min-width: 1440px) {
   .feedback-section {
@@ -120,5 +266,27 @@
   .feedback-container {
     max-width: 1440px;
     padding: 0 80px;
+  }
+
+  .feedback-controls .feedback-navigation-buttons {
+    top: calc(-100% - 110px);
+    width: 100%;
+    left: 0;
+  }
+
+  section#feedback .feedback-container .feedback-title {
+    font-size: 48px;
+    max-width: none;
+    width: 100%;
+  }
+
+  section#feedback .feedback-container .feedback-subtitle {
+    font-size: 18px;
+    max-width: none;
+    width: 100%;
+  }
+
+  .feedback-text {
+    font-size: 18px;
   }
 }

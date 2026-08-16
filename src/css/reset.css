@@ -36,6 +36,7 @@ img {
 a {
   text-decoration: none;
   cursor: pointer;
+  color: var(--color-text-primary);
 }
 ul {
   list-style-type: none;

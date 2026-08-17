@@ -166,8 +166,8 @@
   content: '★★★★★';
   background: linear-gradient(
     90deg,
-    var(--color-text-secondary) var(--percent),
-    var(--color-neutral-light) var(--percent)
+    var(--color-text-primary) var(--percent),
+    var(--color-text-muted) var(--percent)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

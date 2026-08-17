@@ -95,6 +95,10 @@ body.no-scroll {
     color: var(--color-text-primary);
 }
 
+.modal-dessert-rating-wrapper {
+    margin-top: 24px;
+}
+
 .modal-dessert-price {
     font-family: var(--font-secondary);
     font-style: Bold;

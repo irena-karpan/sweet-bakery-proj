@@ -1,14 +1,17 @@
 import { fetchDessertById } from '../api/dessert-modal-api.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import 'css-star-rating/css/star-rating.css';
-
+import { openOrderModal } from './order.js'; 
+import raterJs from 'rater-js';
 
 const backdrop = document.querySelector('.bd-modal-desert');
 const dynamicContentContainer = document.querySelector('.js-modal-dynamic-content');
 const closeModalBtn = document.querySelector('.btn-modal-desert-close');
 
+let raterInstance = null;
+
 document.addEventListener('click', handleProductClick);
+dynamicContentContainer?.addEventListener('click', handleOrderButtonClick);
 
 function getScrollbarWidth() {
   return window.innerWidth - document.documentElement.clientWidth;
@@ -18,12 +21,17 @@ async function handleProductClick(event) {
   const targetButton = event.target.closest('.js-open-modal');
   if (!targetButton) return; 
 
+  if (backdrop && !backdrop.classList.contains('is-hidden')) return;
+
   const dessertId = targetButton.dataset.id;
 
   try {
     const dessertData = await fetchDessertById(dessertId);
+    if (!dessertData) throw new Error('Дані відсутні');
 
     renderModalMarkup(dessertData);
+    
+    initRating(dessertData.rate);
 
     if (backdrop) {
       const scrollbarWidth = getScrollbarWidth();
@@ -36,36 +44,59 @@ async function handleProductClick(event) {
     addCloseListeners();
 
   } catch (error) {
-    console.error('Ошибка модального окна:', error);
+    console.error('Помилка модального вікна:', error);
     iziToast.error({
       title: 'Помилка',
-      message: 'Не вдалося завантажити данные про десерт',
+      message: 'Не вдалося завантажити дані про десерт',
       position: 'topRight',
     });
   }
 }
 
 function renderModalMarkup(dessert) {
-  console.log(dessert);
-    
-  const { image, name, category, price, description, composition, rate } = dessert;
+  const { _id, image, name, category, price, description, composition, rate } = dessert;
 
   dynamicContentContainer.innerHTML = `
     <div class="modal-dessert-details">
       <div class="modal-img-wrapper">
-        <img src="${image}" alt="${name}" class="modal-dessert-img" width="295" />
+        <img src="${image || ''}" alt="${name || 'Десерт'}" class="modal-dessert-img" width="295" />
       </div>
       
       <div class="modal-dessert-info">
-        <h2 class="modal-dessert-title">${name}</h2>
-        <p class="modal-dessert-price">${price} грн</p>
-        
-        <p class="modal-dessert-desc">${description}</p>
-        <p class="modal-dessert-comp"><span class="modal-dessert-comp-span">Склад:</span> ${composition}</p>
-        <button class="btn-modal-desert">Перейти до замовлення</button>
+        <h2 class="modal-dessert-title">${name || 'Без назви'}</h2>
+        <p class="modal-dessert-price">${price || 0} грн</p>
+        <div class="modal-dessert-rating-wrapper">
+          <div id="dessert-rater"></div>
+        </div>
+        <p class="modal-dessert-desc">${description || ''}</p>
+        <p class="modal-dessert-comp"><span class="modal-dessert-comp-span">Склад:</span> ${composition || 'Не вказано'}</p>
+        <button class="btn-modal-desert" data-id="${_id}">Перейти до замовлення</button>
       </div>
     </div>
   `;
+}
+
+function initRating(ratingValue) {
+  const raterContainer = document.querySelector('#dessert-rater');
+  if (!raterContainer) return;
+
+  raterInstance = raterJs({
+    element: raterContainer,
+    rating: ratingValue || 0, 
+    starSize: 20,              
+    readOnly: true,            
+    max: 5                     
+  });
+}
+
+function handleOrderButtonClick(event) {
+  const orderButton = event.target.closest('.btn-modal-desert');
+  if (!orderButton) return; 
+
+  const dessertId = orderButton.dataset.id;
+
+  closeModal();
+  openOrderModal(dessertId);
 }
 
 function addCloseListeners() {
@@ -81,6 +112,8 @@ function closeModal() {
   document.documentElement.style.setProperty('--scrollbar-width', '0px');
 
   if (dynamicContentContainer) dynamicContentContainer.innerHTML = ''; 
+  
+  raterInstance = null;
   
   closeModalBtn?.removeEventListener('click', closeModal);
   backdrop?.removeEventListener('click', handleBackdropClick);

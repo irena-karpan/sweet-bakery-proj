@@ -1,6 +1,6 @@
 /* Mobile styles */
 .feedback-title {
-  margin-bottom: 8px;
+  margin-bottom: 24px;
   font-size: 36px;
   font-weight: 700;
   line-height: 1.2;
@@ -102,7 +102,7 @@
   justify-content: flex-start;
   width: 100%;
   min-height: 48px;
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 .feedback-controls.is-hidden {
@@ -192,12 +192,11 @@
 
 @media only screen and (min-width: 768px) {
   .feedback-subtitle {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .feedback-controls {
     justify-content: center;
-    margin-top: 32px;
   }
 
   .feedback-navigation-buttons {
@@ -239,6 +238,9 @@
 @media only screen and (min-width: 1440px) {
   .feedback-title {
     font-size: 48px;
+  }
+  .feedback-subtitle {
+    margin-bottom: 80px;
   }
   .feedback-card {
     padding: 32px;

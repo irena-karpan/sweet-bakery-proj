@@ -1,8 +1,9 @@
 import axios from 'axios';
+import './defaults-api.js';
 
 export async function createOrder(formData) {
   const response = await axios.post(
-    'https://deserts-store.b.goit.study/api/orders',
+    'orders',
     formData
   );
 

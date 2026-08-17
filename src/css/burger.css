@@ -1,148 +1,146 @@
 /* ====== BURGER MENU ====== */
 .mobile-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    max-width: 375px;
-    height: 100dvh;
-    background-color: var(--color-background);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 1001;
-    transform: translateX(100%);
-    opacity: 0;
-    transition:
-        transform 450ms cubic-bezier(0.25, 0.1, 0.25, 1),
-        opacity 300ms ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 375px;
+  height: 100dvh;
+  background-color: var(--color-background);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1001;
+  transform: translateX(100%);
+  opacity: 0;
+  transition:
+    transform 450ms ease,
+    opacity 250ms ease;
 }
 
 .mobile-menu.is-open {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .mobile-close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transform-origin: center;
-    stroke-width: 1px;
-    stroke: var(--color-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform-origin: center;
+  stroke-width: 1px;
+  stroke: var(--color-text-primary);
 }
 
 .mobile-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .mobile-logo svg {
-    display: block;
-    width: 158px;
-    height: 72px;
-    fill: currentColor;
-    transition: color 250ms ease;
+  display: block;
+  width: 158px;
+  height: 72px;
+  fill: currentColor;
+  transition: color 250ms ease;
 }
 
 .mobile-logo:active svg {
-    color: var(--color-pink);
+  color: var(--color-pink);
 }
 
 .mobile-nav-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 36px;
 }
 
 /* ====== LINK ====== */
 .mobile-link {
-    position: relative;
-    display: block;
-    width: fit-content;
-    padding: 0 12px;
-    margin: 12px 0;
-    font-family: var(--font-primary);
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    outline: transparent;
-    transition: color 250ms ease;
+  position: relative;
+  display: block;
+  width: fit-content;
+  padding: 0 12px;
+  margin: 12px 0;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  outline: transparent;
+  transition: color 250ms ease;
 }
 
 .mobile-link::after {
-    content: '';
-    position: absolute;
-    left: 12px;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background-color: currentColor;
-    transition: width 250ms ease;
+  content: '';
+  position: absolute;
+  left: 12px;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 250ms ease;
 }
 
 .mobile-link:hover::after,
 .mobile-link:focus::after {
-    width: calc(100% - 24px);
+  width: calc(100% - 24px);
 }
 
 .mobile-link:active {
-    color: var(--color-pink);
+  color: var(--color-pink);
 }
 
-
 .mobile-btn {
-    display: block;
-    text-align: center;
-    padding: 12px 24px;
-    border: 2px solid transparent;
-    border-radius: 100px;
-    background-color: var(--color-pink);
-    color: var(--color-text-primary);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    transition:
-        border-color 250ms ease,
-        background-color 250ms ease,
-        color 250ms ease;
+  display: block;
+  text-align: center;
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  background-color: var(--color-pink);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  transition:
+    border-color 250ms ease,
+    background-color 250ms ease,
+    color 250ms ease;
 }
 
 .mobile-btn:hover,
 .mobile-btn:focus {
-    border-color: var(--color-text-primary);
-    color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
 }
 
 .mobile-btn:active {
-    background-color: var(--color-pink-dark);
-    border-color: var(--color-text-primary);
+  background-color: var(--color-pink-dark);
+  border-color: var(--color-text-primary);
 }
 
 /* ====== BACKDROP ====== */
 .mobile-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1000;
-    transition:
-            opacity 300ms ease;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 300ms ease;
 }
 
 .mobile-backdrop.is-open {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ====== BODY NO SCROLL ====== */
 body.no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }

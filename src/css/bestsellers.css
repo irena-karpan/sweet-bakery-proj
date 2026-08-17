@@ -45,14 +45,27 @@
 .slider-controls .popular-pagination {
   position: relative;
   margin: 0;
-  width: 80px;
-  height: 16px;
+  width: auto;
+  height: 48px;
+  line-height: 48px;
   text-align: left;
+  left: 0;
+  transform: none;
 }
 
 .slider-controls .popular-pagination .swiper-pagination-bullet {
   background-color: var(--color-text-primary);
   opacity: 0.2;
+
+  position: relative;
+  top: 8px;
+
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 8px !important;
 }
 
 .slider-controls .popular-pagination .swiper-pagination-bullet-active {

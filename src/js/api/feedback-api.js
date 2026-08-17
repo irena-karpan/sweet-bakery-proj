@@ -1,4 +1,5 @@
 import axios from 'axios';
+import './defaults-api.js';
 
 export async function fetchFeedbacks() {
   const response = await axios.get('feedbacks', {
@@ -8,5 +9,5 @@ export async function fetchFeedbacks() {
     },
   });
 
-  return response.data;
+  return response.data.feedbacks;
 }

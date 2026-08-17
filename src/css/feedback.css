@@ -1,13 +1,48 @@
-#feedback,
-#feedback *,
-#feedback *::after,
-#feedback *::before {
-  box-sizing: border-box;
-}
-
 #feedback.feedback-section {
   padding: 64px 20px;
   background-color: var(--color-background);
+}
+
+/*  */
+
+.feedback-rating.star-rating {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 20px;
+  overflow: hidden;
+  background-repeat: repeat-x;
+}
+/*  */
+
+.feedback-rating .star-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  background-repeat: repeat-x;
+}
+
+.feedback-card .star-container {
+  display: flex;
+  gap: 4px;
+}
+
+.feedback-card .star i,
+.feedback-card .star-half,
+.feedback-card .star-filled {
+  color: #1a1a1a !important;
+}
+
+.feedback-card .rating.star-icon .star i {
+  display: flex;
+}
+
+.feedback-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
 }
 
 #feedback .feedback-container {

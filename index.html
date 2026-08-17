@@ -19,9 +19,9 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/sweet-bakery-proj/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/sweet-bakery-proj/assets/vendor-CisXVA3r.js">
+    <link rel="modulepreload" crossorigin href="/sweet-bakery-proj/assets/vendor-BnzpHVZG.js">
     <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/vendor-F0J2BG69.css">
-    <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/index-COTSH2Ez.css">
+    <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/index-BHJ2peur.css">
   </head>
   <body>
     <header class="header">
@@ -242,7 +242,56 @@
   </div>
 </section>
 
-      
+      <section class="section feedback-section" id="feedback">
+  <div class="container">
+    <h2 class="feedback-title">Відгуки Клієнтів</h2>
+    <p class="feedback-subtitle">
+      Найкращі десерти, які я коли-небудь куштував!
+    </p>
+
+    <!-- loader-->
+    <div class="loader-container" id="feedback-loader">
+      <div class="loader"></div>
+      <p class="loader-text">Завантаження відгуків...</p>
+    </div>
+
+    <!-- slider-->
+    <div class="feedback-slider">
+      <div class="swiper feedback-swiper">
+        <ul class="swiper-wrapper" id="sweet-factory-feedback-list"></ul>
+      </div>
+
+      <div class="feedback-navigation-buttons">
+        <button
+          class="feedback-button feedback-button-prev"
+          type="button"
+          aria-label="Previous slide"
+        >
+          <svg class="feedback-button-icon" width="24" height="24">
+            <use href="/sweet-bakery-proj/assets/sprite-Bt9wopdv.svg#arrow_back-icon"></use>
+          </svg>
+        </button>
+
+        <button
+          class="feedback-button feedback-button-next"
+          type="button"
+          aria-label="Next slide"
+        >
+          <svg class="feedback-button-icon" width="24" height="24">
+            <use href="/sweet-bakery-proj/assets/sprite-Bt9wopdv.svg#arrow_forward-icon"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div id="feedback-controls" class="feedback-controls is-hidden">
+        <div class="wrapper-pagination">
+          <div class="swiper-pagination feedback-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       <section class="section faq-section" id="faq">
   <div class="container">
     <h2 class="faq-title">Часті питання</h2>

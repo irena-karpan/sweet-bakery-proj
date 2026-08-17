@@ -11,6 +11,7 @@ import { fetchFeedbacks } from '../api/feedback-api';
 const feedbackList = document.querySelector('#sweet-factory-feedback-list');
 const loader = document.querySelector('#feedback-loader') || document.querySelector('.loader-container');
 const feedbackControls = document.querySelector('#feedback-controls') || document.querySelector('.feedback-controls');
+const navigationButtons = document.querySelector('.feedback-navigation-buttons');
 
 let feedbackSwiper = null;
 
@@ -89,8 +90,10 @@ function initSwiper() {
 }
 
 async function renderFeedbackSection() {
-  loader?.classList.remove('hidden');
-  feedbackControls?.classList.add('is-hidden');
+loader?.classList.remove('hidden');
+feedbackControls?.classList.add('is-hidden');
+navigationButtons?.classList.add('is-hidden');
+
 
   try {
     const feedbacks = await fetchFeedbacks();
@@ -108,7 +111,8 @@ async function renderFeedbackSection() {
     initRatings();
     initSwiper();
 
-    feedbackControls?.classList.remove('is-hidden');
+      feedbackControls?.classList.remove('is-hidden');
+      navigationButtons?.classList.remove('is-hidden');
   } catch (error) {
     console.error('Помилка завантаження відгуків:', error);
 

@@ -1,292 +1,293 @@
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
-
-/*  MOBILE  (від 320px до 767px) - Гумова та адаптивна верстка  */
-
-.feedback-section {
-  padding: 64px 20px;
-  background: #f5fdfd;
-}
-
-.feedback-swiper {
-  width: 100%;
-  margin-bottom: 24px;
-}
-
-.feedback-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 32px;
-  width: 100%;
-  max-width: 100%;
+#feedback,
+#feedback *,
+#feedback *::after,
+#feedback *::before {
   box-sizing: border-box;
-  position: relative;
 }
 
-.feedback-controls .feedback-pagination {
-  position: relative !important;
-  left: 0 !important;
-  transform: none !important;
-  top: auto;
+#feedback.feedback-section {
+  padding: 64px 20px;
+  background-color: var(--color-background);
+}
 
-  min-width: max-content;
-  max-width: 120px;
+#feedback .feedback-container {
+  display: block;
+  width: 100%;
+}
+
+/* Налаштування Swiper контейнера */
+#feedback .feedback-swiper {
+  position: relative;
+  width: 100%;
   overflow: hidden;
+}
 
+#feedback .feedback-list {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
   margin: 0;
+  list-style: none;
 }
 
-.feedback-controls .feedback-pagination .swiper-pagination-bullet {
-  background-color: #080c0c;
-  opacity: 0.6;
-  flex-shrink: 0;
+#feedback .feedback-controls {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-top: 32px !important;
+  width: 100% !important;
+  max-width: 335px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-.feedback-controls .feedback-pagination .swiper-pagination-bullet-active {
-  background-color: #2c2c2c;
-  opacity: 1;
-}
-
-.feedback-controls .feedback-navigation-buttons {
+#feedback .feedback-loader-wrapper {
   display: flex;
-  gap: 8px;
+  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-  width: auto;
-  position: relative;
+  padding: 40px 0;
+  width: 100%;
 }
 
-.feedback-btn {
-  background-color: #f5fdfd;
+#feedback .feedback-loader-wrapper.hidden {
+  display: none !important;
+}
+
+#feedback .feedback-controls .swiper-pagination.feedback-pagination {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: auto !important;
+  margin: 0 !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+#feedback
+  .feedback-controls
+  .swiper-pagination.feedback-pagination
+  .swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: var(--color-text-primary) !important;
+  opacity: 0.2 !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  border-radius: 50% !important;
+  margin: 0 6px !important;
+}
+
+#feedback
+  .feedback-controls
+  .swiper-pagination.feedback-pagination
+  .swiper-pagination-bullet-active {
+  background-color: var(--color-text-secondary) !important;
+  opacity: 1 !important;
+}
+
+#feedback
+  .feedback-controls
+  .swiper-pagination.feedback-pagination.swiper-pagination-bullets-dynamic {
+  overflow: visible !important;
+}
+
+#feedback .feedback-controls .feedback-navigation-buttons {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  width: auto !important;
+  max-width: none !important;
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  z-index: 5 !important;
+}
+
+#feedback .feedback-btn {
+  background-color: transparent !important;
+  border: 2px solid var(--color-border) !important;
+  color: var(--color-text-primary) !important;
   cursor: pointer;
-  flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border: 2px solid #080c0c;
-  border-radius: 100px;
-  padding: 12px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1 !important;
+  transition:
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 200ms ease;
 }
 
-.feedback-btn:hover,
-.feedback-btn:focus-visible {
-  background-color: #f19898;
-  border-color: #080c0c;
-  color: #080c0c;
+#feedback .feedback-btn:hover,
+#feedback .feedback-btn:focus-visible {
+  background-color: var(--color-pink) !important;
+  border-color: var(--color-pink) !important;
+  transform: scale(1.05);
 }
 
-.feedback-btn:active {
+#feedback .feedback-btn:active {
+  background-color: var(--color-pink-dark) !important;
+  border-color: var(--color-pink-dark) !important;
   transform: scale(0.95);
-  background-color: #c07979;
-  border-color: #080c0c;
-  color: #080c0c;
 }
 
-.feedback-btn.swiper-button-disabled {
-  opacity: 0.3;
+#feedback .feedback-btn.swiper-button-disabled {
+  opacity: 0.2 !important;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
-.feedback-card {
-  box-sizing: border-box;
-  background: #f5fdfd;
-  border: 1px solid #080c0c;
+#feedback .feedback-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
-  height: 100%;
+  height: 250px;
 }
 
-.star-rating {
+#feedback .star-rating {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
+  font-family: var(--font-primary), sans-serif;
   font-size: 20px;
-  font-family: Times;
   line-height: 1;
   margin-bottom: 24px;
 }
 
-.star-rating::before {
+#feedback .star-rating::before {
   content: '★★★★★';
   background: linear-gradient(
     90deg,
-    #2c2c2c var(--percent),
-    #e0e0e0 var(--percent)
+    var(--color-text-secondary) var(--percent),
+    var(--color-neutral-light) var(--percent)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-section#feedback .feedback-container .feedback-title {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 32px;
+#feedback .feedback-container .feedback-title {
+  font-family: var(--font-secondary);
+  font-size: 36px;
   font-weight: 700;
   text-align: center;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: #080c0c;
-
-  width: 100%;
-  max-width: 335px;
-  flex-shrink: 0;
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
+  color: var(--color-text-primary);
   margin-bottom: 8px;
 }
 
-section#feedback .feedback-container .feedback-subtitle {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+#feedback .feedback-container .feedback-subtitle {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 1.5;
   text-align: center;
-  color: #080c0c;
-
-  width: 100%;
-  max-width: 335px;
-  flex-shrink: 0;
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 32px;
+  color: var(--color-text-primary);
+  margin-bottom: 40px;
 }
 
-.feedback-text {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
+#feedback .feedback-text {
+  font-family: var(--font-primary);
+  font-size: 18px;
   line-height: 1.5;
   text-align: left;
-  margin-top: 0;
-  color: #080c0c;
+  color: var(--color-text-primary);
   margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 81px;
 }
 
-.feedback-user-name {
-  font-family: 'Work Sans', sans-serif;
+#feedback .feedback-user-name {
+  font-family: var(--font-primary);
   font-size: 16px;
   font-weight: 600;
-  color: #080c0c;
+  color: var(--color-text-primary);
   line-height: 1.5;
   margin-top: auto;
 }
 
-.feedback-swiper .swiper-slide {
-  box-sizing: border-box;
+#feedback .swiper-slide {
   height: auto;
   display: flex;
 }
 
-/* TABLET  (від 768px до 1439px) - Адаптація під планшет */
-
 @media screen and (min-width: 768px) {
-  .feedback-section {
+  #feedback.feedback-section {
     padding: 64px 32px;
   }
 
-  .feedback-container {
-    max-width: 768px;
-    padding: 0 32px;
+  #feedback .feedback-container {
+    max-width: 704px;
     margin: 0 auto;
     position: relative;
   }
 
-  .feedback-controls {
-    position: relative;
-    margin-top: 32px;
-    height: 48px;
-    width: 100%;
-    z-index: 50;
+  #feedback .feedback-card {
+    height: 280px;
   }
 
-  .feedback-controls .feedback-pagination {
+  #feedback .feedback-controls {
+    justify-content: center !important;
+    max-width: none !important;
+    margin-top: 40px !important;
+  }
+
+  #feedback .feedback-controls .swiper-pagination.feedback-pagination {
+    margin: 0 auto !important;
+    width: max-content !important;
+  }
+
+  #feedback .feedback-container .feedback-navigation-buttons {
     position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
     top: 50% !important;
-    max-width: none;
-    margin: 0;
-    display: flex;
-    justify-content: center;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    max-width: 736px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    z-index: 99 !important;
+    pointer-events: none !important;
   }
 
-  .feedback-controls .feedback-navigation-buttons {
-    position: absolute;
-    top: -165px;
-    transform: none;
-    margin-top: 0;
-
-    width: 100%;
-    left: 0;
-    right: auto;
-
-    justify-content: space-between;
-    pointer-events: none;
-    display: flex;
+  #feedback .feedback-btn {
+    pointer-events: auto !important;
+    background-color: var(--color-background) !important;
   }
 
-  .feedback-controls .feedback-navigation-buttons .feedback-btn-prev {
-    margin-left: -24px;
-    pointer-events: auto;
-  }
-
-  .feedback-controls .feedback-navigation-buttons .feedback-btn-next {
-    margin-right: -24px;
-    pointer-events: auto;
-  }
-
-  .feedback-btn {
-    background-color: #ffffff;
-  }
-
-  section#feedback .feedback-container .feedback-subtitle {
-    font-size: 18px;
-    font-weight: 400;
-    max-width: 600px;
-    flex-shrink: 1;
+  #feedback .feedback-container .feedback-subtitle {
+    margin-bottom: 60px;
   }
 }
 
-/*  DESKTOP (від 1440px+) - Адаптація під десктоп */
-
 @media screen and (min-width: 1440px) {
-  .feedback-section {
+  #feedback.feedback-section {
     padding: 80px 64px;
   }
 
-  .feedback-container {
-    max-width: 1440px;
-    padding: 0 80px;
+  #feedback .feedback-container {
+    max-width: 1152px;
   }
 
-  .feedback-controls .feedback-navigation-buttons {
-    top: calc(-100% - 110px);
-    width: 100%;
-    left: 0;
+  #feedback .feedback-card {
+    height: 260px;
   }
 
-  section#feedback .feedback-container .feedback-title {
+  #feedback .feedback-container .feedback-navigation-buttons {
+    top: 55% !important;
+    max-width: 1184px !important;
+  }
+
+  #feedback .feedback-container .feedback-title {
     font-size: 48px;
-    max-width: none;
-    width: 100%;
-  }
-
-  section#feedback .feedback-container .feedback-subtitle {
-    font-size: 18px;
-    max-width: none;
-    width: 100%;
-  }
-
-  .feedback-text {
-    font-size: 18px;
   }
 }

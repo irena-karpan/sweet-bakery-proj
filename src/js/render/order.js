@@ -8,7 +8,7 @@ const closeOrderButton = document.querySelector('.order-close');
 const orderForm = document.querySelector('.order-form');
 const loader = document.querySelector('.loader-backdrop');
 
-let selectedDessertId = null;
+let selectedDessertId = '';
 
 export function openOrderModal(dessertId) {
   selectedDessertId = dessertId;

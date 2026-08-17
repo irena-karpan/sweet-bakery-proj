@@ -134,7 +134,6 @@
 #feedback .feedback-btn:active {
   background-color: var(--color-pink-dark) !important;
   border-color: var(--color-pink-dark) !important;
-  transform: scale(0.95);
 }
 
 #feedback .feedback-btn.swiper-button-disabled {

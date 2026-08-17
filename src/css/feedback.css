@@ -3,54 +3,68 @@
   background-color: var(--color-background);
 }
 
-/* rater-js */
-
-.feedback-rating.star-rating {
-  position: relative;
-  display: block;
-  width: 100px;
-  height: 20px;
-  overflow: hidden;
-  background-repeat: repeat-x;
-}
-
-.feedback-rating .star-value {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  background-repeat: repeat-x;
-}
-
-/* Feedback */
-
 #feedback .feedback-container {
-  display: block;
+  width: 100%;
+}
+
+#feedback .feedback-title {
+  margin-bottom: 8px;
+
+  font-family: var(--font-secondary);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+
+  color: var(--color-text-primary);
+}
+
+#feedback .feedback-subtitle {
+  margin-bottom: 40px;
+
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+
+  color: var(--color-text-primary);
+}
+
+#feedback .feedback-loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 40px 0;
+}
+
+#feedback .feedback-loader-wrapper.hidden {
+  display: none;
+}
+
+#feedback .feedback-slider {
+  position: relative;
   width: 100%;
 }
 
 #feedback .feedback-swiper {
-  position: relative;
   width: 100%;
+  margin-bottom: 24px;
+
   overflow: hidden;
 }
 
 #feedback .feedback-list {
   padding: 0;
   margin: 0;
+
   list-style: none;
 }
 
-#feedback .feedback-loader-wrapper {
+#feedback .swiper-slide {
+  height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0;
-  width: 100%;
-}
-
-#feedback .feedback-loader-wrapper.hidden {
-  display: none !important;
 }
 
 #feedback .feedback-card {
@@ -58,6 +72,7 @@
   flex-direction: column;
   align-items: flex-start;
 
+  width: 100%;
   height: 250px;
   padding: 24px;
 
@@ -66,41 +81,20 @@
   border-radius: 20px;
 }
 
-#feedback .feedback-container .feedback-title {
-  margin-bottom: 8px;
-
-  font-family: var(--font-secondary);
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  color: var(--color-text-primary);
-}
-
-#feedback .feedback-container .feedback-subtitle {
-  margin-bottom: 40px;
-
-  font-family: var(--font-primary);
-  font-size: 18px;
-  line-height: 1.5;
-  text-align: center;
-  color: var(--color-text-primary);
-}
-
 #feedback .feedback-text {
+  height: 81px;
   margin-bottom: 24px;
 
   font-family: var(--font-primary);
   font-size: 18px;
   line-height: 1.5;
-  text-align: left;
+
   color: var(--color-text-primary);
 
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  height: 81px;
 }
 
 #feedback .feedback-user-name {
@@ -110,10 +104,124 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
+
   color: var(--color-text-primary);
 }
 
-/* #region tablet */
+#feedback .feedback-rating.star-rating {
+  position: relative;
+
+  display: block;
+
+  width: 100px;
+  height: 20px;
+
+  margin-bottom: 24px;
+
+  overflow: hidden;
+}
+
+#feedback .feedback-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+#feedback .feedback-controls {
+  pointer-events: none;
+}
+
+#feedback .wrapper-pagination,
+#feedback .feedback-pagination,
+#feedback .feedback-button {
+  pointer-events: auto;
+}
+
+#feedback .feedback-controls.is-hidden {
+  display: none !important;
+}
+
+#feedback .wrapper-pagination {
+  display: flex;
+  align-items: center;
+}
+
+#feedback .feedback-pagination {
+  position: relative;
+
+  width: 80px;
+  height: 16px;
+
+  margin: 0;
+}
+
+#feedback .feedback-pagination .swiper-pagination-bullet {
+  background-color: var(--color-text-primary);
+  opacity: 0.2;
+
+  cursor: pointer;
+}
+
+#feedback .feedback-pagination .swiper-pagination-bullet-active {
+  background-color: var(--color-text-primary);
+  opacity: 1;
+}
+
+#feedback .feedback-navigation-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#feedback .feedback-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+
+  border: 2px solid var(--color-text-primary);
+  border-radius: 50%;
+
+  background-color: transparent;
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    opacity 200ms ease;
+}
+
+#feedback .feedback-button-icon {
+  width: 24px;
+  height: 24px;
+
+  fill: currentColor;
+}
+
+#feedback .feedback-button:hover:not(:disabled):not(.swiper-button-disabled),
+#feedback
+  .feedback-button:focus-visible:not(:disabled):not(.swiper-button-disabled) {
+  background-color: var(--color-pink);
+  border-color: var(--color-pink);
+}
+
+#feedback .feedback-button:active:not(:disabled):not(.swiper-button-disabled) {
+  background-color: var(--color-pink-dark);
+  border-color: var(--color-pink-dark);
+}
+
+#feedback .feedback-button.swiper-button-disabled,
+#feedback .feedback-button:disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
 
 @media only screen and (min-width: 768px) {
   #feedback.feedback-section {
@@ -125,83 +233,47 @@
     margin: 0 auto;
   }
 
-  #feedback .feedback-slider {
-    position: relative;
+  #feedback .feedback-subtitle {
+    margin-bottom: 60px;
   }
 
   #feedback .feedback-swiper.swiper {
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    margin-bottom: 0;
     padding-bottom: 56px;
+    overflow: hidden;
   }
 
   #feedback .feedback-card {
     height: 280px;
   }
 
-  /* Стрілки */
+  /* Controls */
 
-  #feedback .feedback-button {
+  #feedback .feedback-controls {
+    display: block;
+    width: 100%;
+  }
+
+  /* Pagination */
+
+  #feedback .wrapper-pagination {
     position: absolute;
-    top: calc((100% - 56px) / 2);
-    z-index: 10;
+    left: 50%;
+    bottom: 0;
 
     display: flex;
     align-items: center;
-    justify-content: center;
 
-    width: 48px;
-    height: 48px;
-    padding: 12px;
-    box-sizing: border-box;
-
-    border: 2px solid var(--color-border);
-    border-radius: 100px;
-
-    background-color: var(--color-background);
-    color: var(--color-text-primary);
-
-    cursor: pointer;
-    transform: translateY(-50%);
-
-    transition:
-      background-color 250ms ease,
-      opacity 250ms ease;
+    transform: translateX(-50%);
+    z-index: 30;
   }
-
-  #feedback .feedback-button-prev {
-    left: -25px;
-  }
-
-  #feedback .feedback-button-next {
-    right: -25px;
-  }
-
-  #feedback .feedback-button-icon {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-
-  #feedback .feedback-button:not(.swiper-button-disabled):hover,
-  #feedback .feedback-button:not(.swiper-button-disabled):focus-visible {
-    background-color: var(--color-pink);
-  }
-
-  #feedback .feedback-button:not(.swiper-button-disabled):active {
-    background-color: var(--color-pink-dark);
-  }
-
-  #feedback .feedback-button.swiper-button-disabled {
-    opacity: 0.2;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  /* Пагінація */
 
   #feedback .feedback-pagination {
-    display: block;
+    width: auto;
+    height: auto;
+    margin: 0;
 
     --swiper-pagination-bottom: 0px;
     --swiper-pagination-bullet-size: 8px;
@@ -215,19 +287,40 @@
     cursor: pointer;
   }
 
-  #feedback .feedback-pagination .swiper-pagination-bullet:hover,
-  #feedback .feedback-pagination .swiper-pagination-bullet:focus-visible {
-    background-color: var(--color-neutral);
+  /* Buttons */
+
+  #feedback .feedback-navigation-buttons {
+    display: contents;
   }
 
-  #feedback .feedback-subtitle {
-    margin-bottom: 60px;
+  #feedback .feedback-button {
+    position: absolute;
+
+    top: calc((100% - 56px) / 2);
+    z-index: 32;
+
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+
+    border: 2px solid var(--color-border);
+    border-radius: 100px;
+
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+
+  #feedback .feedback-button-prev {
+    left: -25px;
+  }
+
+  #feedback .feedback-button-next {
+    right: -25px;
   }
 }
-
-/* #endregion */
-
-/* #region desktop */
 
 @media only screen and (min-width: 1440px) {
   #feedback.feedback-section {
@@ -245,6 +338,12 @@
   #feedback .feedback-card {
     height: 260px;
   }
-}
 
-/* #endregion */
+  #feedback .feedback-button-prev {
+    left: -25px;
+  }
+
+  #feedback .feedback-button-next {
+    right: -25px;
+  }
+}

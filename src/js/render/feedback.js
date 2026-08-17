@@ -4,54 +4,20 @@ import iziToast from 'izitoast';
 import raterJs from 'rater-js';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import { fetchFeedbacks } from '../api/feedback-api';
 
 const feedbackList = document.querySelector(
   '#sweet-factory-feedback-list'
 );
+
 const loader = document.querySelector('#feedback-loader');
 
-function initSwiper() {
-  new Swiper('.feedback-swiper', {
-    modules: [Navigation, Pagination],
-
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 16,
-
-    observer: true,
-    observeParents: true,
-
-    navigation: {
-      nextEl: '.feedback-button-next',
-      prevEl: '.feedback-button-prev',
-    },
-
-    pagination: {
-      el: '#feedback .feedback-pagination',
-      clickable: true,
-      dynamicBullets: true,
-      dynamicMainBullets: 3,
-    },
-
-    breakpoints: {
-      768: {
-        slidesPerView: 3,
-        slidesPerGroup: 1,
-        spaceBetween: 20,
-      },
-
-      1440: {
-        slidesPerView: 3,
-        slidesPerGroup: 1,
-        spaceBetween: 32,
-      },
-    },
-  });
-}
+const feedbackControls = document.querySelector(
+  '#feedback .feedback-controls'
+);
 
 function createRatingMarkup(rate) {
   return `
@@ -92,17 +58,55 @@ function initRatings() {
       starSize: 20,
       step: 0.5,
       readOnly: true,
+      
     });
   });
 }
 
+function initSwiper() {
+  new Swiper('.feedback-swiper', {
+    modules: [Navigation, Pagination],
+
+    slidesPerView: 1,
+    spaceBetween: 16,
+
+    pagination: {
+      el: '#feedback .feedback-pagination',
+      clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 1,
+    },
+
+    navigation: {
+      nextEl: '#feedback .feedback-button-next',
+      prevEl: '#feedback .feedback-button-prev',
+    },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+
+      1440: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+    },
+  });
+}
+
 async function renderFeedbackSection() {
+  
   loader?.classList.remove('hidden');
+
+  
+  feedbackControls?.classList.add('is-hidden');
 
   try {
     const feedbacks = await fetchFeedbacks();
 
-    if (!feedbacks.length) {
+    if (!feedbacks || !feedbacks.length) {
       throw new Error('No feedbacks');
     }
 
@@ -110,14 +114,24 @@ async function renderFeedbackSection() {
 
     initRatings();
     initSwiper();
+
+    
+    feedbackControls?.classList.remove('is-hidden');
+
   } catch (error) {
-    console.error(error);
+    console.error('Помилка завантаження відгуків:', error);
+
+    
+    feedbackControls?.classList.add('is-hidden');
 
     iziToast.error({
+      title: 'Помилка',
       message: 'Не вдалося завантажити відгуки',
       position: 'topRight',
     });
+
   } finally {
+    
     loader?.classList.add('hidden');
   }
 }

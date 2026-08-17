@@ -1,0 +1,55 @@
+<div class="modal-order is-hidden">
+  <div class="modal-content">
+    <button type="button" class="order-close" aria-label="Закрити">
+      <svg width="24" height="24">
+        <use href="./img/sprite.svg#close-icon"></use>
+      </svg>
+    </button>
+
+    <h2>Оформлення замовлення</h2>
+
+    <form class="order-form">
+      <div class="form-field">
+        <label for="name">Ім’я*</label>
+        <input
+          type="text"
+          id="name"
+          name="username"
+          placeholder="Вікторія"
+          pattern="[А-Яа-яІіЇїЄєҐґA-Za-z' \-]{2,}"
+          title="Ім’я має містити щонайменше 2 символи"
+          required
+        />
+        <span class="error-message">Error Text</span>
+      </div>
+      <div class="form-field">
+        <label for="phone">Телефон*</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="38 0__ _______"
+          pattern="380[0-9]{9}"
+          title="Формат: 380XXXXXXXXX"
+          required
+        />
+        <span class="error-message">Error Text</span>
+      </div>
+      <div class="form-field">
+        <label for="comment">Коментар*</label>
+        <textarea
+          class="form-comment"
+          id="comment"
+          name="comment"
+          placeholder="Ваш коментар"
+          required
+        ></textarea>
+        <span class="error-message">Error Text</span>
+      </div>
+      <button type="submit" class="submit-btn">Надіслати заявку</button>
+    </form>
+  </div>
+</div>
+<div class="loader-backdrop is-hidden">
+  <div class="loader"></div>
+</div>

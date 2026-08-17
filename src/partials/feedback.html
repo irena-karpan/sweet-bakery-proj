@@ -1,65 +1,54 @@
 <section class="feedback-section" id="feedback">
   <div class="container feedback-container">
     <h2 class="feedback-title">Відгуки Клієнтів</h2>
+
     <p class="feedback-subtitle">
-      Дізнайтеся, що кажуть наші задоволені клієнти...
+      Найкращі десерти, які я коли-небудь куштував!
     </p>
 
     <div class="feedback-loader-wrapper hidden" id="feedback-loader">
       <div class="loader"></div>
     </div>
 
-    <div class="swiper feedback-swiper">
-      <ul
-        class="swiper-wrapper feedback-list"
-        id="sweet-factory-feedback-list"
-      ></ul>
-    </div>
+    <div class="feedback-slider">
+      <div class="feedback-swiper swiper">
+        <ul
+          class="feedback-list swiper-wrapper"
+          id="sweet-factory-feedback-list"
+        ></ul>
 
-    <div class="feedback-controls">
-      <div class="feedback-pagination swiper-pagination"></div>
-
-      <div class="feedback-navigation-buttons">
-        <button
-          type="button"
-          class="feedback-btn feedback-btn-prev"
-          aria-label="Previous slide"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-        </button>
-
-        <button
-          type="button"
-          class="feedback-btn feedback-btn-next"
-          aria-label="Next slide"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </button>
+        <div class="feedback-pagination swiper-pagination"></div>
       </div>
+
+      <button
+        class="feedback-button feedback-button-prev"
+        type="button"
+        aria-label="Попередній відгук"
+      >
+        <svg
+          class="feedback-button-icon"
+          width="24"
+          height="24"
+          aria-hidden="true"
+        >
+          <use href="./img/sprite.svg#arrow_back-icon"></use>
+        </svg>
+      </button>
+
+      <button
+        class="feedback-button feedback-button-next"
+        type="button"
+        aria-label="Наступний відгук"
+      >
+        <svg
+          class="feedback-button-icon"
+          width="24"
+          height="24"
+          aria-hidden="true"
+        >
+          <use href="./img/sprite.svg#arrow_forward-icon"></use>
+        </svg>
+      </button>
     </div>
   </div>
 </section>

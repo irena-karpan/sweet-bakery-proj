@@ -5,6 +5,7 @@ import raterJs from 'rater-js';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import { fetchFeedbacks } from '../api/feedback-api';
 
@@ -14,40 +15,42 @@ const feedbackList = document.querySelector(
 const loader = document.querySelector('#feedback-loader');
 
 function initSwiper() {
-  setTimeout(() => {
-    new Swiper('.feedback-swiper', {
-      modules: [Navigation, Pagination],
+  new Swiper('.feedback-swiper', {
+    modules: [Navigation, Pagination],
 
-      slidesPerView: 1,
-      spaceBetween: 16,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 16,
 
-      observer: true,
-      observeParents: true,
+    observer: true,
+    observeParents: true,
 
-      navigation: {
-        nextEl: '.feedback-btn-next',
-        prevEl: '.feedback-btn-prev',
+    navigation: {
+      nextEl: '.feedback-button-next',
+      prevEl: '.feedback-button-prev',
+    },
+
+    pagination: {
+      el: '#feedback .feedback-pagination',
+      clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 3,
+    },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        spaceBetween: 20,
       },
 
-      pagination: {
-        el: '#feedback .feedback-pagination',
-        clickable: true,
-        dynamicBullets: true,
+      1440: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        spaceBetween: 32,
       },
-
-      breakpoints: {
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-
-        1440: {
-          slidesPerView: 3,
-          spaceBetween: 32,
-        },
-      },
-    });
-  }, 50);
+    },
+  });
 }
 
 function createRatingMarkup(rate) {
@@ -106,6 +109,7 @@ async function renderFeedbackSection() {
     feedbackList.innerHTML = createFeedbackMarkup(feedbacks);
 
     initRatings();
+    initSwiper();
   } catch (error) {
     console.error(error);
 
@@ -115,8 +119,6 @@ async function renderFeedbackSection() {
     });
   } finally {
     loader?.classList.add('hidden');
-
-    initSwiper();
   }
 }
 

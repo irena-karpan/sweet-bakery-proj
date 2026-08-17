@@ -1,15 +1,15 @@
 .modal-order {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 64px 20px;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.25);
-    z-index: 1000;
-    overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 20px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  overflow-y: auto;
 }
 
 .is-hidden {
@@ -24,112 +24,112 @@ body.no-scroll {
 }
 
 .modal-content {
-    font-family: var(--font-primary);
-    background-color: var(--color-background);
-    position: relative;
-    width: 100%;
-    max-width: 335px;
-    border-radius: 16px;
-    padding: 64px 20px;
-    box-sizing: border-box;
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  position: relative;
+  width: 100%;
+  max-width: 335px;
+  border-radius: 16px;
+  padding: 64px 20px;
+  box-sizing: border-box;
 }
 
 .order-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .order-close svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-    stroke-width: 1px;
-    stroke: var(--color-text-primary);
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke-width: 1px;
+  stroke: var(--color-text-primary);
 }
 
 .modal-content h2 {
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    text-align: center;
-    color: var(--color-text-primary);
-    margin-bottom: 48px;
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-text-primary);
+  margin-bottom: 48px;
 }
 
 .order-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
 }
 
 .form-field {
-    width: 100%;
+  width: 100%;
 }
 
 .order-form label {
-    display: block;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--color-text-primary);
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-primary);
 }
 
 .order-form input,
 .order-form textarea {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 8px;
-    border: 2px solid var(--color-text-primary);
-    border-radius: 12px;
-    padding: 8px 12px;
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: transparent;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  border: 2px solid var(--color-text-primary);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: transparent;
+  transition: border-color 250ms ease;
 }
 
 .order-form input:focus,
 .order-form textarea:focus {
-    outline: none;
-    border-color: var(--color-pink-light);
+  outline: none;
+  border-color: var(--color-pink-light);
 }
 
 .order-form input:active,
 .order-form textarea:active {
-    border-color: var(--color-pink-light);
+  border-color: var(--color-pink-light);
 }
 
 .order-form input.error,
 .order-form textarea.error {
-    border-color: var(--color-error);
+  border-color: var(--color-error);
 }
 
 .error-message {
-    display: none;
-    margin-top: 8px;
-    line-height: 1.5;
-    color: var(--color-error);
+  display: none;
+  margin-top: 8px;
+  line-height: 1.5;
+  color: var(--color-error);
 }
 
 input + .error-message {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 textarea + .error-message {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .order-form input {
-    height: 40px;
+  height: 40px;
 }
 
 .order-form textarea {
@@ -140,34 +140,36 @@ textarea + .error-message {
 
 .order-form input::placeholder,
 .order-form textarea::placeholder {
-    color: var(--color-text-secondary);
-    opacity: 1;
+  color: var(--color-text-secondary);
+  opacity: 1;
 }
 
 .submit-btn {
-    width: 100%;
-    height: 44px;
-    padding: 10px 24px;
-    border: 2px solid transparent;
-    border-radius: 100px;
-    background-color: var(--color-pink);
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--color-text-primary);
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  width: 100%;
+  height: 44px;
+  padding: 10px 24px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  background-color: var(--color-pink);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease;
 }
 
 .submit-btn:hover,
 .submit-btn:focus {
-   border: 2px solid var(--color-text-primary);
-   background-color: var(--color-pink);
+  border-color: var(--color-text-primary);
+  background-color: var(--color-pink);
 }
 
 .submit-btn:active {
-     border: 2px solid var(--color-text-primary);
-    background-color: var(--color-pink-dark);
+  border-color: var(--color-text-primary);
+  background-color: var(--color-pink);
 }
 
 .loader-backdrop {
@@ -199,27 +201,44 @@ textarea + .error-message {
   background-color: var(--color-pink) !important;
   color: var(--color-text-primary) !important;
 }
+.swal2-confirm {
+  border: 2px solid var(--color-pink);
+  border-radius: 100px;
+  background-color: var(--color-pink) !important;
+  color: var(--color-text-primary) !important;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.swal2-confirm:hover,
+.swal2-confirm:focus {
+  border: 2px solid var(--color-text-primary);
+  background-color: var(--color-pink);
+}
+
+.swal2-confirm:active {
+  background-color: var(--color-pink-dark) !important;
+}
 
 @media screen and (min-width: 768px) {
-    .modal-content {
-        max-width: 691px;
-        padding: 64px 32px;
-    }
+  .modal-content {
+    max-width: 691px;
+    padding: 64px 32px;
+  }
 
-    .submit-btn {
-        display: block;
-        width: 344px;
-        margin: 0 auto;
-    }
+  .submit-btn {
+    display: block;
+    width: 344px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .modal-content {
-        max-width: 768px;
-        padding: 64px 64px;
-    }
+  .modal-content {
+    max-width: 768px;
+    padding: 64px 64px;
+  }
 
-    .submit-btn {
-        width: 196px;
-    }
+  .submit-btn {
+    width: 196px;
+  }
 }

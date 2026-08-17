@@ -1,186 +1,186 @@
 body.no-scroll {
-    overflow: hidden;
-    padding-right: var(--scrollbar-width, 0px);
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0px);
 }
 
 .bd-modal-desert {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
-    box-sizing: border-box;
-    padding: 40px 20px;
-    overflow-y: auto;
-    display: grid;
-    align-items: center;
-    justify-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  overflow-y: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
 .desert-modal {
-    position: relative;
-    width: 100%;
-    max-width: 335px;
-    padding: 64px 20px;
-    border-radius: 16px;
-    background-color: rgba(245, 253, 253, 1);
-    margin: auto;
+  position: relative;
+  width: 100%;
+  max-width: 335px;
+  padding: 64px 20px;
+  border-radius: 16px;
+  background-color: rgba(245, 253, 253, 1);
+  margin: auto;
 }
 
 .btn-modal-desert-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    border: 0;
-    background: none;
-    padding: 0;
-    cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .btn-modal-desert {
-    width: 100%;
-    height: 44px;
-    border-radius: 100px;
-    background-color: rgba(241, 152, 152, 1);
-    border: 1px solid var(--color-pink);
-    margin-top: 32px;
-    font-family: var(--font-primary);
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 16px;
-    line-height: 150%;
-    color: var(--color-text-primary);
-    cursor: pointer;
-    transition:
-        border-color 250ms ease,
-        background-color 250ms ease;
+  width: 100%;
+  height: 44px;
+  border-radius: 100px;
+  background-color: rgba(241, 152, 152, 1);
+  border: 1px solid var(--color-pink);
+  margin-top: 32px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition:
+    border-color 250ms ease,
+    background-color 250ms ease;
 }
 
 .btn-modal-desert:hover,
 .btn-modal-desert:focus {
-    border: 2px solid var(--color-text-primary);
+  border: 2px solid var(--color-text-primary);
 }
 
 .btn-modal-desert:active {
-    background-color: var(--color-pink-dark);
+  background-color: var(--color-pink-dark);
 }
 
 .is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .modal-dessert-img {
-    border-radius: 16px;
-    display: block;
-    max-width: 100%;
-    height: auto;
+  border-radius: 16px;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .modal-dessert-info {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .modal-dessert-title {
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 32px;
-    line-height: 120%;
-    letter-spacing: -1%;
-    color: var(--color-text-primary);
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -1%;
+  color: var(--color-text-primary);
 }
 
 .modal-dessert-rating-wrapper {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .modal-dessert-price {
-    font-family: var(--font-secondary);
-    font-style: Bold;
-    font-size: 20px;
-    line-height: 140%;
-    letter-spacing: -1%;
-    font-weight: 700;
-    margin-top: 8px;
-    color: var(--color-text-primary);
+  font-family: var(--font-secondary);
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: -1%;
+  font-weight: 700;
+  margin-top: 8px;
+  color: var(--color-text-primary);
 }
 
 .modal-dessert-desc {
-    font-family: var(--font-primary);
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 14px;
-    line-height: 150%;
-    letter-spacing: 0%;
-    margin-top: 24px;
-    color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  margin-top: 24px;
+  color: var(--color-text-primary);
 }
 
 .modal-dessert-comp {
-    font-family: var(--font-primary);
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
-    letter-spacing: 0%;
-    margin-top: 24px;
-    color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  margin-top: 24px;
+  color: var(--color-text-primary);
 }
 
 .modal-dessert-comp-span {
-    font-family: var(--font-primary);
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 150%;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
 }
 
 @media only screen and (min-width: 768px) {
-    .bd-modal-desert {
-        padding: 40px;
-    }
+  .bd-modal-desert {
+    padding: 40px;
+  }
 
-    .desert-modal {
-        max-width: 704px;
-        padding: 64px 32px;
-    }
+  .desert-modal {
+    max-width: 704px;
+    padding: 64px 32px;
+  }
 
-    .btn-modal-desert {
-        width: 310px;
-    }
+  .btn-modal-desert {
+    width: 310px;
+  }
 
-    .modal-dessert-img {
-        width: 640px;
-    }
+  .modal-dessert-img {
+    width: 640px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .desert-modal {
-        max-width: 1312px;
-        padding: 64px;
-    }
+  .desert-modal {
+    max-width: 1312px;
+    padding: 64px;
+  }
 
-    .modal-dessert-details {
-        display: flex;
-        gap: 24px;
-    }
+  .modal-dessert-details {
+    display: flex;
+    gap: 24px;
+  }
 
-    .modal-dessert-info {
-        margin-top: 70px;
-    }
+  .modal-dessert-info {
+    margin-top: auto;
+  }
 
-    .modal-dessert-img {
-        width: 580px;
-    }
+  .modal-dessert-img {
+    width: 580px;
+  }
 
-    .modal-dessert-title {
-        font-size: 40px;
-    }
+  .modal-dessert-title {
+    font-size: 40px;
+  }
 
-    .modal-dessert-price {
-        font-size: 24px;
-    }
+  .modal-dessert-price {
+    font-size: 24px;
+  }
 }

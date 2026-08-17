@@ -112,7 +112,8 @@
   .about-us-button-icon {
     width: 24px;
     height: 24px;
-    fill: currentColor;
+    color: currentColor;
+    stroke: currentColor;
   }
 
   .about-us-button:not(.swiper-button-disabled):hover,

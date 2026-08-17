@@ -54,9 +54,9 @@ export function createDessertCard(dessert) {
         <div class="dessert-card__footer">
           <p class="dessert-card__price">${price} грн</p>
           <button
-            class="dessert-card__button"
+            class="dessert-card__button js-open-modal"
             type="button"
-            data-dessert-id="${id}"
+            data-id="${id}"
             aria-label="Переглянути ${name}"
           >
             <svg class="dessert-card__icon" aria-hidden="true">

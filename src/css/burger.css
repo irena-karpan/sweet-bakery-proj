@@ -4,7 +4,7 @@
   top: 0;
   right: 0;
   width: 100%;
-  max-width: 375px;
+  /* max-width: 375px; */
   height: 100dvh;
   background-color: var(--color-background);
   padding: 20px;
@@ -17,6 +17,11 @@
   transition:
     transform 450ms ease,
     opacity 250ms ease;
+}
+.mobile-menu-content {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
 }
 
 .mobile-menu.is-open {
@@ -97,6 +102,7 @@
 }
 
 .mobile-btn {
+  max-width: 335px;
   display: block;
   text-align: center;
   padding: 12px 24px;
@@ -143,4 +149,10 @@
 /* ====== BODY NO SCROLL ====== */
 body.no-scroll {
   overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .mobile-menu,
+  .mobile-backdrop {
+    display: none;
+  }
 }

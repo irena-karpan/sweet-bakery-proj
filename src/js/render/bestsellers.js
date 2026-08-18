@@ -22,7 +22,7 @@ export function renderPopularProducts(products, container) {
         
       return `
         <div class="swiper-slide">
-          <article class="product-card">
+          <article class="product-card" data-aos="fade-up">
             <div class="product-card-thumb">
               <img 
                 src="${image}" 

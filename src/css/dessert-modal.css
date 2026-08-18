@@ -99,6 +99,10 @@ body.no-scroll {
   margin-top: 24px;
 }
 
+.modal-dessert-rating-wrapper .star-rating {
+  filter: brightness(0);
+}
+
 .modal-dessert-price {
   font-family: var(--font-secondary);
   font-style: Bold;

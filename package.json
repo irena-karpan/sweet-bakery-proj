@@ -19,6 +19,7 @@
   "dependencies": {
     "accordion-js": "^3.4.1",
     "axios": "^1.19.0",
+    "choices.js": "^11.2.3",
     "izitoast": "^1.4.0",
     "rater-js": "^1.0.1",
     "sweetalert2": "^11.26.25",

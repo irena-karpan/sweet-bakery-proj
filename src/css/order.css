@@ -179,7 +179,7 @@ textarea + .error-message {
 
 .submit-btn:active {
   border-color: var(--color-text-primary);
-  background-color: var(--color-pink);
+  background-color: var(--color-pink-dark);
 }
 
 .loader-backdrop {

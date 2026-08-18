@@ -110,14 +110,24 @@ body.no-scroll {
 
 .order-form input.error,
 .order-form textarea.error {
+  outline: none;
   border-color: var(--color-error);
 }
 
+.order-form input.error:focus,
+.order-form textarea.error:focus {
+  outline: none;
+  border-color: var(--color-error);
+}
 .error-message {
   display: none;
   margin-top: 8px;
   line-height: 1.5;
   color: var(--color-error);
+}
+
+.form-field.is-error .error-message {
+  display: block;
 }
 
 input + .error-message {
@@ -197,25 +207,23 @@ textarea + .error-message {
 }
 
 .swal2-confirm {
-  border-radius: 100px;
-  background-color: var(--color-pink) !important;
-  color: var(--color-text-primary) !important;
-}
-.swal2-confirm {
   border: 2px solid var(--color-pink);
   border-radius: 100px;
   background-color: var(--color-pink) !important;
   color: var(--color-text-primary) !important;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition:
+    border-color 250ms ease,
+    bacground-color 250ms ease;
 }
 
 .swal2-confirm:hover,
 .swal2-confirm:focus {
-  border: 2px solid var(--color-text-primary);
+  border-color: var(--color-text-primary);
   background-color: var(--color-pink);
 }
 
 .swal2-confirm:active {
+  border-color: var(--color-text-primary);
   background-color: var(--color-pink-dark) !important;
 }
 

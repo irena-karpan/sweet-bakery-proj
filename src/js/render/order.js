@@ -10,6 +10,38 @@ const loader = document.querySelector('.loader-backdrop');
 
 let selectedDessertId = '';
 
+function showFieldError(field) {
+  const formField = field.closest('.form-field');
+
+  formField.classList.add('is-error');
+  field.classList.add('error');
+}
+
+function hideFieldError(field) {
+  const formField = field.closest('.form-field');
+
+  formField.classList.remove('is-error');
+  field.classList.remove('error');
+}
+
+function validateField(field) {
+  if (field.checkValidity()) {
+    hideFieldError(field);
+    return true;
+  }
+
+  showFieldError(field);
+  return false;
+}
+
+const formFields = orderForm.querySelectorAll('input, textarea');
+
+formFields.forEach(field => {
+  field.addEventListener('input', () => {
+    validateField(field);
+  });
+});
+
 export function openOrderModal(dessertId) {
   selectedDessertId = dessertId;
 
@@ -71,29 +103,37 @@ export function showOrderError(message) {
 }
 
 orderForm.addEventListener('submit', async sendForm => {
-    sendForm.preventDefault();
+  sendForm.preventDefault();
 
-    const {username, phone, comment} = sendForm.target.elements;
+  const { username, phone, comment } = sendForm.target.elements;
 
-    const formData = {
-        "name": username.value.trim(),
-        "phone": phone.value.trim(),
-        "dessertId": getSelectedDessertId(),
-        "comment": comment.value.trim()
-    };
+  const fields = [username, phone, comment];
 
-    try {
-        showLoader();
+  const isValid = fields.every(validateField);
 
-        const orderData = await createOrder(formData);
+  if (!isValid) {
+    return;
+  }
 
-        closeOrderModal();
-        orderForm.reset();
+  const formData = {
+    name: username.value.trim(),
+    phone: phone.value.trim(),
+    dessertId: getSelectedDessertId(),
+    comment: comment.value.trim(),
+  };
 
-        showOrderSuccess(orderData.orderNum);
-    } catch {
-        showOrderError('Не вдалося надіслати заявку. Спробуйте ще раз.');
-    } finally {
-      hideLoader();
-    }
+  try {
+    showLoader();
+
+    const orderData = await createOrder(formData);
+
+    closeOrderModal();
+    orderForm.reset();
+
+    showOrderSuccess(orderData.orderNum);
+  } catch {
+    showOrderError('Не вдалося надіслати заявку. Спробуйте ще раз.');
+  } finally {
+    hideLoader();
+  }
 });

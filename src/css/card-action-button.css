@@ -1,0 +1,51 @@
+.product-card-btn-arrow,
+.dessert-card__button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+
+  background-color: transparent;
+  border: 2px solid var(--color-text-primary);
+  border-radius: 50%;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.product-card-btn-arrow:hover:not(:disabled),
+.dessert-card__button:hover:not(:disabled) {
+  background-color: var(--color-pink);
+}
+
+.product-card-btn-arrow:focus-visible,
+.dessert-card__button:focus-visible {
+  outline: 2px solid var(--color-pink-dark);
+  outline-offset: 2px;
+}
+
+.product-card-btn-arrow:active:not(:disabled),
+.dessert-card__button:active:not(:disabled) {
+  background-color: var(--color-pink-dark);
+}
+
+.product-card-btn-arrow:disabled,
+.dessert-card__button:disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
+
+.arrow-card-icon,
+.dessert-card__icon {
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+}

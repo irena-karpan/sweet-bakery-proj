@@ -85,8 +85,7 @@
 }
 
 .slider-button-prev,
-.slider-button-next,
-.product-card-btn-arrow {
+.slider-button-next {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,43 +105,32 @@
   height: 48px;
 }
 
-.product-card-btn-arrow {
-  width: 44px;
-  height: 44px;
-  padding: 10px;
-}
-
 .slider-button-prev:hover:not(:disabled):not(.swiper-button-disabled),
-.slider-button-next:hover:not(:disabled):not(.swiper-button-disabled),
-.product-card-btn-arrow:hover:not(:disabled) {
+.slider-button-next:hover:not(:disabled):not(.swiper-button-disabled) {
   background-color: var(--color-pink);
 }
 
 .slider-button-prev:focus-visible,
-.slider-button-next:focus-visible,
-.product-card-btn-arrow:focus-visible {
+.slider-button-next:focus-visible {
   outline: 2px solid var(--color-pink-dark);
   outline-offset: 2px;
 }
 
 .slider-button-prev:active:not(:disabled):not(.swiper-button-disabled),
-.slider-button-next:active:not(:disabled):not(.swiper-button-disabled),
-.product-card-btn-arrow:active:not(:disabled) {
+.slider-button-next:active:not(:disabled):not(.swiper-button-disabled) {
   background-color: var(--color-pink-dark);
 }
 
 .slider-button-prev.swiper-button-disabled,
 .slider-button-next.swiper-button-disabled,
 .slider-button-prev:disabled,
-.slider-button-next:disabled,
-.product-card-btn-arrow:disabled {
+.slider-button-next:disabled {
   opacity: 0.2;
   cursor: default;
   pointer-events: none;
 }
 
-.slider-icon,
-.arrow-card-icon {
+.slider-icon {
   width: 24px;
   height: 24px;
   color: currentColor;

@@ -7,8 +7,10 @@ import raterJs from 'rater-js';
 const backdrop = document.querySelector('.bd-modal-desert');
 const dynamicContentContainer = document.querySelector('.js-modal-dynamic-content');
 const closeModalBtn = document.querySelector('.btn-modal-desert-close');
+const modalTransitionMs = 320;
 
 let raterInstance = null;
+let closeTimer = null;
 
 document.addEventListener('click', handleProductClick);
 dynamicContentContainer?.addEventListener('click', handleOrderButtonClick);
@@ -95,8 +97,10 @@ function handleOrderButtonClick(event) {
 
   const dessertId = orderButton.dataset.id;
 
-  closeModal();
-  openOrderModal(dessertId);
+  closeModal({
+    keepScrollLocked: true,
+    afterClose: () => openOrderModal(dessertId),
+  });
 }
 
 function addCloseListeners() {
@@ -105,19 +109,26 @@ function addCloseListeners() {
   window.addEventListener('keydown', handleEscPress);
 }
 
-function closeModal() {
-  if (backdrop) backdrop.classList.add('is-hidden');
-  
-  document.body.classList.remove('no-scroll');
-  document.documentElement.style.setProperty('--scrollbar-width', '0px');
+function closeModal({ afterClose, keepScrollLocked = false } = {}) {
+  clearTimeout(closeTimer);
 
-  if (dynamicContentContainer) dynamicContentContainer.innerHTML = ''; 
-  
-  raterInstance = null;
+  if (backdrop) backdrop.classList.add('is-hidden');
+
+  if (!keepScrollLocked) {
+    document.body.classList.remove('no-scroll');
+    document.documentElement.style.setProperty('--scrollbar-width', '0px');
+  }
   
   closeModalBtn?.removeEventListener('click', closeModal);
   backdrop?.removeEventListener('click', handleBackdropClick);
   window.removeEventListener('keydown', handleEscPress);
+
+  closeTimer = setTimeout(() => {
+    if (dynamicContentContainer) dynamicContentContainer.innerHTML = '';
+
+    raterInstance = null;
+    afterClose?.();
+  }, modalTransitionMs);
 }
 
 function handleBackdropClick(event) {

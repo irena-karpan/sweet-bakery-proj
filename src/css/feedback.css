@@ -68,12 +68,10 @@
   gap: 4px;
   margin-bottom: 16px;
   line-height: 1;
-  filter: brightness(0);
 }
 
-.feedback-rating.star-rating img {
-  width: 20px;
-  height: 20px;
+.feedback-rating.star-rating .star-value {
+  filter: brightness(0);
 }
 
 .feedback-text {

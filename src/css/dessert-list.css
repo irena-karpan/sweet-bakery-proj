@@ -42,6 +42,11 @@
 
 /* Select */
 
+.desserts__select-wrapper {
+  position: relative;
+  z-index: 30;
+}
+
 /* Category dropdown */
 
 .desserts-dropdown {
@@ -423,17 +428,23 @@
 
 @media only screen and (min-width: 1440px) {
   .desserts__header {
-    justify-content: center;
+    display: contents;
   }
 
   .desserts__heading {
-    width: 768px;
-    gap: 24px;
-    text-align: center;
+    display: contents;
   }
 
   .desserts__title {
     font-size: 48px;
+    padding-bottom: 0;
+  }
+
+  .desserts__description {
+    max-width: 768px;
+    margin-top: -16px;
+    margin-inline: auto;
+    text-align: center;
   }
 
   .desserts__select-wrapper {

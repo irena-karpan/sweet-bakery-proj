@@ -10,6 +10,11 @@
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 1000;
   overflow-y: auto;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 320ms ease,
+    visibility 320ms ease;
 }
 
 .is-hidden {
@@ -32,6 +37,15 @@ body.no-scroll {
   border-radius: 16px;
   padding: 64px 20px;
   box-sizing: border-box;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease;
+}
+
+.modal-order.is-hidden .modal-content {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
 }
 
 .order-close {

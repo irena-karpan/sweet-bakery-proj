@@ -151,6 +151,10 @@
 
 /* ====== DESKTOP ====== */
 @media (min-width: 1440px) {
+  .header {
+    position: static;
+  }
+
   .header .container {
     padding: 0 64px;
   }

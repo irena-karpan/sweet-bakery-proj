@@ -18,6 +18,11 @@ body.no-scroll {
   display: grid;
   align-items: center;
   justify-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 320ms ease,
+    visibility 320ms ease;
 }
 
 .desert-modal {
@@ -28,6 +33,15 @@ body.no-scroll {
   border-radius: 16px;
   background-color: rgba(245, 253, 253, 1);
   margin: auto;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease;
+}
+
+.bd-modal-desert.is-hidden .desert-modal {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
 }
 
 .btn-modal-desert-close {
@@ -99,7 +113,7 @@ body.no-scroll {
   margin-top: 24px;
 }
 
-.modal-dessert-rating-wrapper .star-rating {
+.modal-dessert-rating-wrapper .star-rating .star-value {
   filter: brightness(0);
 }
 

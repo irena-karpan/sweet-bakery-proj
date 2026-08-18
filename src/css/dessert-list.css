@@ -75,7 +75,7 @@
   text-align: left;
 
   color: var(--color-text-primary);
-  background-color: var(--color-background-light);
+  background-color: var(--color-background);
 
   border: 2px solid var(--color-border);
   border-radius: 6px;
@@ -85,6 +85,10 @@
   transition:
     border-color 250ms ease,
     background-color 250ms ease;
+}
+
+.desserts-dropdown.is-open .desserts-dropdown__trigger {
+  background-color: var(--color-background-light);
 }
 
 .desserts-dropdown__value {
@@ -117,13 +121,13 @@
   transform: rotate(180deg);
 }
 
-.desserts-dropdown__trigger:hover:not(:disabled) {
-  border-color: var(--color-pink-dark);
-}
-
+.desserts-dropdown__trigger:hover:not(:disabled),
 .desserts-dropdown__trigger:focus-visible {
-  outline: 2px solid var(--color-pink-dark);
-  outline-offset: 2px;
+  border-color: var(--color-pink);
+  outline: none;
+}
+.desserts-dropdown.is-open .desserts-dropdown__trigger {
+  border-color: var(--color-pink-dark);
 }
 
 .desserts-dropdown__trigger:disabled {

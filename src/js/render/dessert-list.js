@@ -14,10 +14,17 @@ const state = {
 
 const refs = {
   categories: document.querySelector('.desserts__categories'),
-  categorySelect: document.querySelector('.desserts__select'),
+  dropdown: document.querySelector('.desserts-dropdown'),
+  dropdownTrigger: document.querySelector('.desserts-dropdown__trigger'),
+  dropdownValue: document.querySelector('.desserts-dropdown__value'),
+  dropdownMenu: document.querySelector('.desserts-dropdown__menu'),
   grid: document.querySelector('.desserts__grid'),
   loader: document.querySelector('.desserts__loader'),
   loadMoreButton: document.querySelector('.desserts__load-more'),
+  dropdownScrollbar: document.querySelector('.desserts-dropdown__scrollbar'),
+  dropdownScrollbarThumb: document.querySelector(
+    '.desserts-dropdown__scrollbar-thumb'
+  ),
 };
 
 function escapeMarkup(value) {
@@ -88,11 +95,23 @@ function createCategoryButton(category) {
   `;
 }
 
-function createCategoryOption(category) {
+function createDropdownOption(category) {
   const id = escapeMarkup(category._id);
   const name = escapeMarkup(category.name);
 
-  return `<option value="${id}">${name}</option>`;
+  return `
+    <li>
+      <button
+        class="desserts-dropdown__option"
+        type="button"
+        role="option"
+        aria-selected="false"
+        data-category-id="${id}"
+      >
+        ${name}
+      </button>
+    </li>
+  `;
 }
 
 function renderCategories(categories) {
@@ -100,23 +119,35 @@ function renderCategories(categories) {
     'beforeend',
     categories.map(createCategoryButton).join('')
   );
-  refs.categorySelect.insertAdjacentHTML(
+  refs.dropdownMenu.insertAdjacentHTML(
     'beforeend',
-    categories.map(createCategoryOption).join('')
+    categories.map(createDropdownOption).join('')
   );
 }
 
 function updateCategoryControls() {
   const selectedCategory = state.category ?? '';
 
-  refs.categorySelect.value = selectedCategory;
-  refs.categories
-    .querySelectorAll('.desserts__category')
-    .forEach(button => {
-      const isActive = button.dataset.categoryId === selectedCategory;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', String(isActive));
-    });
+  refs.categories.querySelectorAll('.desserts__category').forEach(button => {
+    const isActive = button.dataset.categoryId === selectedCategory;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+
+  const dropdownOptions = refs.dropdownMenu.querySelectorAll(
+    '.desserts-dropdown__option'
+  );
+
+  dropdownOptions.forEach(option => {
+    const isActive = option.dataset.categoryId === selectedCategory;
+
+    option.classList.toggle('is-active', isActive);
+    option.setAttribute('aria-selected', String(isActive));
+
+    if (isActive) {
+      refs.dropdownValue.textContent = option.textContent.trim();
+    }
+  });
 }
 
 function setLoading(isLoading, { append = false } = {}) {
@@ -132,7 +163,8 @@ function setLoading(isLoading, { append = false } = {}) {
   refs.loader.hidden = !isLoading;
   refs.grid.setAttribute('aria-busy', String(isLoading));
   refs.loadMoreButton.disabled = isLoading;
-  refs.categorySelect.disabled = isLoading;
+  refs.dropdownTrigger.disabled = isLoading;
+  refs.dropdown.classList.toggle('is-loading', isLoading);
   refs.categories.classList.toggle('is-loading', isLoading);
   refs.categories.setAttribute('aria-busy', String(isLoading));
 }
@@ -230,8 +262,78 @@ function handleCategoryClick(event) {
   selectCategory(button.dataset.categoryId);
 }
 
-function handleCategoryChange(event) {
-  selectCategory(event.target.value);
+function openDropdown() {
+  refs.dropdownMenu.hidden = false;
+  refs.dropdownTrigger.setAttribute('aria-expanded', 'true');
+  refs.dropdown.classList.add('is-open');
+  updateDropdownScrollbar();
+}
+
+function closeDropdown() {
+  refs.dropdownMenu.hidden = true;
+  refs.dropdownTrigger.setAttribute('aria-expanded', 'false');
+  refs.dropdown.classList.remove('is-open');
+}
+
+function toggleDropdown() {
+  const isOpen = refs.dropdownTrigger.getAttribute('aria-expanded') === 'true';
+
+  if (isOpen) {
+    closeDropdown();
+  } else {
+    openDropdown();
+  }
+}
+
+function handleDropdownOptionClick(event) {
+  const option = event.target.closest('.desserts-dropdown__option');
+
+  if (!option || !refs.dropdownMenu.contains(option)) {
+    return;
+  }
+
+  selectCategory(option.dataset.categoryId);
+  closeDropdown();
+}
+
+function handleDocumentClick(event) {
+  if (!refs.dropdown.contains(event.target)) {
+    closeDropdown();
+  }
+}
+
+function handleDocumentKeydown(event) {
+  if (event.key === 'Escape') {
+    closeDropdown();
+    refs.dropdownTrigger.focus();
+  }
+}
+
+function updateDropdownScrollbar() {
+  const menu = refs.dropdownMenu;
+  const thumb = refs.dropdownScrollbarThumb;
+
+  if (!menu || !thumb) {
+    return;
+  }
+
+  const maxScroll = menu.scrollHeight - menu.clientHeight;
+
+  if (maxScroll <= 0) {
+    refs.dropdownScrollbar.hidden = true;
+    return;
+  }
+
+  refs.dropdownScrollbar.hidden = false;
+
+  const trackHeight = refs.dropdownScrollbar.clientHeight;
+  const thumbHeight = thumb.offsetHeight;
+  const maxThumbOffset = trackHeight - thumbHeight;
+
+  const scrollRatio = menu.scrollTop / maxScroll;
+  const thumbOffset = scrollRatio * maxThumbOffset;
+
+  thumb.style.transform = `translateY(${thumbOffset}px)`;
 }
 
 function handleLoadMore() {
@@ -279,13 +381,22 @@ async function initializeDessertList() {
 
 if (
   refs.categories &&
-  refs.categorySelect &&
+  refs.dropdown &&
+  refs.dropdownTrigger &&
+  refs.dropdownValue &&
+  refs.dropdownMenu &&
   refs.grid &&
   refs.loader &&
+  refs.dropdownScrollbar &&
+  refs.dropdownScrollbarThumb &&
   refs.loadMoreButton
 ) {
   refs.categories.addEventListener('click', handleCategoryClick);
-  refs.categorySelect.addEventListener('change', handleCategoryChange);
+  refs.dropdownTrigger.addEventListener('click', toggleDropdown);
+  refs.dropdownMenu.addEventListener('click', handleDropdownOptionClick);
+  document.addEventListener('click', handleDocumentClick);
+  document.addEventListener('keydown', handleDocumentKeydown);
   refs.loadMoreButton.addEventListener('click', handleLoadMore);
+  refs.dropdownMenu.addEventListener('scroll', updateDropdownScrollbar);
   initializeDessertList();
 }

@@ -9,3 +9,4 @@ import './js/render/footer.js';
 import './js/render/burger.js';
 import './js/render/dessert-modal.js';
 import './js/render/order.js';
+import './js/render/animations.js';

@@ -21,7 +21,7 @@
     <script type="module" crossorigin src="/sweet-bakery-proj/index.js"></script>
     <link rel="modulepreload" crossorigin href="/sweet-bakery-proj/assets/vendor-BnzpHVZG.js">
     <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/vendor-F0J2BG69.css">
-    <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/index-BPNl0qTu.css">
+    <link rel="stylesheet" crossorigin href="/sweet-bakery-proj/assets/index-BtwBuOXW.css">
   </head>
   <body>
     <header class="header">
@@ -116,12 +116,55 @@
       </div>
 
       <div class="desserts__select-wrapper">
-        <select
-          class="desserts__select"
-          aria-label="Оберіть категорію десертів"
-        >
-          <option value="">Всі десерти</option>
-        </select>
+        <div class="desserts-dropdown">
+          <button
+            class="desserts-dropdown__trigger"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <span class="desserts-dropdown__value">Всі десерти</span>
+
+            <svg
+              class="desserts-dropdown__icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M7 10l5 5 5-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <ul
+            class="desserts-dropdown__menu"
+            role="listbox"
+            aria-label="Категорії десертів"
+            hidden
+          >
+            <li>
+              <button
+                class="desserts-dropdown__option is-active"
+                type="button"
+                role="option"
+                aria-selected="true"
+                data-category-id=""
+              >
+                Всі десерти
+              </button>
+            </li>
+          </ul>
+          <div class="desserts-dropdown__scrollbar" aria-hidden="true">
+            <div class="desserts-dropdown__scrollbar-thumb"></div>
+          </div>
+        </div>
       </div>
     </div>
 

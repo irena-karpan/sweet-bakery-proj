@@ -5,6 +5,9 @@ const closeBtn = document.querySelector('.mobile-close');
 const links = document.querySelectorAll('.mobile-link');
 const mobileLogo = document.querySelector('.mobile-logo');
 mobileLogo.addEventListener('click', closeMenu);
+const mobileBtn = document.querySelector('.mobile-btn');
+
+mobileBtn.addEventListener('click', closeMenu);
 
 function openMenu() {
     mobileMenu.classList.add('is-open');
